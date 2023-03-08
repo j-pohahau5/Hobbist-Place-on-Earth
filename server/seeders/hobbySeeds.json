@@ -1,0 +1,66 @@
+[ 
+  {   
+    "name": "Drawing",   
+    "description": "Sketching and drawing",    
+    "categoryId": "1",    
+    "userId": "1",    
+    "comments": [      
+      {        
+        "content": "I love drawing too!",       
+        "userId": "2"      
+      },      
+      {        
+        "content": "Your drawings are amazing!",        
+        "userId": "3"      
+      }   
+    ]
+  },
+  {
+    "name": "Basketball",
+    "description": "Playing basketball",
+    "categoryId": "2",
+    "userId": "2",
+    "comments": [
+      {
+        "content": "Great shot!",
+        "userId": "1"
+      },
+      {
+        "content": "I used to play basketball too!",
+        "userId": "3"
+      }
+    ]
+  },
+  {
+    "name": "Guitar",
+    "description": "Playing guitar",
+    "categoryId": "3",
+    "userId": "3",
+    "comments": [
+      {
+        "content": "You're really talented!",
+        "userId": "1"
+      },
+      {
+        "content": "I wish I could play guitar like you!",
+        "userId": "2"
+      }
+    ]
+  },
+  {
+    "name": "Coding",
+    "description": "Programming and coding",
+    "categoryId": "4",
+    "userId": "4",
+    "comments": [
+      {
+        "content": "Coding is so fun!",
+        "userId": "2"
+      },
+      {
+        "content": "I'm learning to code too!",
+        "userId": "3"
+      }
+    ]
+  }
+]
