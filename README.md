@@ -2,6 +2,7 @@
 
 ## Description 📖
 
+
 ## Getting Started 💃
 
 Create a Interactive MERN Stack Single-Page Application with the following features:
@@ -11,16 +12,21 @@ Create a Interactive MERN Stack Single-Page Application with the following featu
 # Usage 🚀
 
 # Installation 🤖
+To install the project follow these steps:
+
+# User stories 🔍
+
+## Contribution 💾 
 
 ## Authors 💣
 
-** OUR TEAM ** 
+** OUR TEAM **  
+💻
+💻
+💻
+💻
+💻
 
-💻
-💻
-💻
-💻
-💻
 
 
 # License 📑
