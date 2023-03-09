@@ -21,6 +21,12 @@ const hobbySchema = new Schema({
             ref: 'Category',
         },
     ],
+    commentID: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Comment',
+        },
+    ],
     userID: [
         {
             type: Schema.Types.ObjectId,
