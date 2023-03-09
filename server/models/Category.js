@@ -5,14 +5,14 @@ const categorySchema = new Schema({
         type: String,
         required: true,
         unique: true,
-        minlength: 5,
+        minlength: 1,
         maxlength: 20,
     },
     description: {
         type: String,
         required: true,
         unique: true,
-        minlength: 10,
+        minlength: 1,
         maxlength: 500,
     },
     HobbyId: [
