@@ -16,7 +16,6 @@ const typeDefs = gql`
     _id: ID
     title: String
     description: String
-    createdAt: String
     hobbies: [Hobby]!
     users: [User]!
   }
@@ -24,12 +23,10 @@ const typeDefs = gql`
   type Comment {
     _id: ID
     content: String
-    commentAuthor: String
-    createdAt: String
     userId: [User]!
     HobbyId:[Hobby]!
   }
-  type Category {
+  type Hobby {
     _id: ID
     title: String
     description: String
@@ -44,21 +41,21 @@ const typeDefs = gql`
   type Query {
     users: [User]
     user(username: String!): User
-    thoughts(username: String): [Thought]
-    thought(thoughtId: ID!): Thought
+    categories: [Category]
+    category(categoryId: ID!): Category
+    hobbies: [Hobby]
+    hobby(hobbyId: ID!): Hobby
   }
 
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    addThought(thoughtText: String!, thoughtAuthor: String!): Thought
-    addComment(
-      thoughtId: ID!
-      commentText: String!
-      commentAuthor: String!
-    ): Thought
-    removeThought(thoughtId: ID!): Thought
-    removeComment(thoughtId: ID!, commentId: ID!): Thought
+    addCategory(title: String!, description: String!): Category
+    addHobby(categoryId: ID!, title: String!, description: String!): Hobby
+    addComment(hobbyId: ID!, content: String!): Comment
+    removeCategory(categoryId: ID!): Category
+    removeHobby(hobbyId: ID!, categoryId: ID!): Hobby
+    removeComment(hobbyId: ID!, commentId: ID!): Comment
   }
 `;
 
