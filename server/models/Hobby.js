@@ -18,7 +18,7 @@ const hobbySchema = new Schema({
     categoryID: [
         {
             type: Schema.Types.ObjectId,
-            ref: 'Hobby',
+            ref: 'Category',
         },
     ],
     userID: [

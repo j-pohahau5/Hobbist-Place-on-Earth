@@ -18,7 +18,13 @@ const categorySchema = new Schema({
     HobbyId: [
         {
             type: Schema.Types.ObjectId,
-            ref: 'Category',
+            ref: 'Hobby',
+        },
+    ],
+    userID: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'User',
         },
     ],
 });
