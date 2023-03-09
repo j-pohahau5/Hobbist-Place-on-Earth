@@ -31,6 +31,12 @@ const userSchema = new Schema({
       ref: 'Comment',
     },
   ],
+  categoryId: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Category',
+    },
+  ],
 });
 
 userSchema.pre('save', async function (next) {
