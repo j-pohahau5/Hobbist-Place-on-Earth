@@ -6,24 +6,34 @@ const { signToken } = require("../utils/auth");
 const resolvers = {
   Query: {
     users: async () => {
-      return User.find().populate("hobbies");
+      return User.find();
+    //   .populate("hobbies")
     },
     user: async (parent, { username }) => {
-      return User.findOne({ username }).populate("hobbies");
+      return User.findOne({ username });
+    //   .populate("hobbies")
     },
     categories: async (parent, { username }) => {
       const params = username ? { username } : {};
       return Category.find(params).sort({ createdAt: -1 });
     },
     category: async (parent, { categoryId }) => {
-      return Category.findOne({ _id: categoryId }).populate("hobbies");
+      return Category.findOne({ _id: categoryId });
+    //   .populate("hobbies")
+    },
+    hobbies: async (parent, { username }) => {
+        const params = username ? { username } : {};
+        return Hobby.find(params).sort({ createdAt: -1 });
+
     },
     hobby: async (parent, { hobbyId }) => {
-        return Hobby.findOne({ _id: hobbyId }).populate("comments");
+        return Hobby.findOne({ _id: hobbyId });
+        // .populate("comments")
     },
     me: async (parent, args, context) => {
       if (context.user) {
-        return User.findOne({ _id: context.user._id }).populate("hobbies");
+        return User.findOne({ _id: context.user._id });
+        // .populate("hobbies")
       }
       throw new AuthenticationError("You need to be logged in!");
     },
