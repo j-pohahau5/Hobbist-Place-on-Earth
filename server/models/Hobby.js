@@ -26,7 +26,7 @@ const hobbySchema = new Schema({
             type: Schema.Types.ObjectId,
             ref: 'User',
         },
-    ],
+    ],  
 });
 
 const Hobby = model('Hobby', hobbySchema);
