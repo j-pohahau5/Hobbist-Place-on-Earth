@@ -23,11 +23,19 @@ const typeDefs = gql`
 
   type Comment {
     _id: ID
-    commentText: String
+    content: String
     commentAuthor: String
     createdAt: String
+    userId: [User]!
+    HobbyId:[Hobby]!
   }
-
+  type Category {
+    _id: ID
+    title: String
+    description: String
+    category: [Category]!
+    users: [User]!
+  }
   type Auth {
     token: ID!
     user: User
