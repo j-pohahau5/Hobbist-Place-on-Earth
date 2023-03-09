@@ -1,18 +1,18 @@
 [  
     {    
-        "name": "Art",    
+        "title": "Art",    
         "description": "Artistic activities and hobbies"  
     },  
     {   
-        "name": "Sports",    
+        "title": "Sports",    
         "description": "Physical activities and sports"  
     },  
     {    
-        "name": "Music",    
+        "title": "Music",    
         "description": "Musical activities and hobbies"  
     },  
     {    
-        "name": "Technology",    
+        "title": "Technology",    
         "description": "Technology-related hobbies and interests"  
     }
 ]

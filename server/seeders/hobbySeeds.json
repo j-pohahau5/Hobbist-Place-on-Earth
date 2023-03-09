@@ -1,6 +1,6 @@
 [ 
   {   
-    "name": "Drawing",   
+    "title": "Drawing",   
     "description": "Sketching and drawing",    
     "categoryId": "1",    
     "userId": "1",    
@@ -16,7 +16,7 @@
     ]
   },
   {
-    "name": "Basketball",
+    "title": "Basketball",
     "description": "Playing basketball",
     "categoryId": "2",
     "userId": "2",
@@ -32,7 +32,7 @@
     ]
   },
   {
-    "name": "Guitar",
+    "title": "Guitar",
     "description": "Playing guitar",
     "categoryId": "3",
     "userId": "3",
@@ -48,7 +48,7 @@
     ]
   },
   {
-    "name": "Coding",
+    "title": "Coding",
     "description": "Programming and coding",
     "categoryId": "4",
     "userId": "4",
