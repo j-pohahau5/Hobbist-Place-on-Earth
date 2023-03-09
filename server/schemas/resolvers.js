@@ -1,3 +1,4 @@
+const { AuthenticationError } = require('apollo-server-express');
 const { User, Hobby, Comment, Category } = require('./models');
 const bcrypt = require('bcrypt');
 const { signToken } = require('./util/auth');
@@ -48,6 +49,13 @@ const resolvers = {
                 throw new Error(err);
             }
         },
+        // this is for the user to get to their profile and see only their hobbies
+        me: async (parent, args, context) => {
+            if (context.user) {
+              return User.findOne({ _id: context.user._id }).populate('hobbies');
+            }
+            throw new AuthenticationError('You need to be logged in!');
+          },
     },
     Mutation:{
         registerUser: async(_, { username, password }) => {
