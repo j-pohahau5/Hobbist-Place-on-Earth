@@ -45,6 +45,7 @@ const typeDefs = gql`
     category(categoryId: ID!): Category
     hobbies: [Hobby]
     hobby(hobbyId: ID!): Hobby
+    me: User
   }
 
   type Mutation {
