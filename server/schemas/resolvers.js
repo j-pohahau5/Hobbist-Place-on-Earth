@@ -15,7 +15,7 @@ const resolvers = {
     },
     categories: async (parent, { username }) => {
       const params = username ? { username } : {};
-      return Category.find(params).sort({ createdAt: -1 });
+      return (await Category.find(params).sort({ createdAt: -1 }));
     },
     category: async (parent, { categoryId }) => {
       return Category.findOne({ _id: categoryId });
@@ -23,11 +23,17 @@ const resolvers = {
     },
     hobbies: async (parent, { username }) => {
         const params = username ? { username } : {};
-        return Hobby.find(params).sort({ createdAt: -1 });
+        return Hobby.find(params).sort({ createdAt: -1 })
+        // .populate("categoryID")
+        // .populate("commentID")
+        // .populate("userID");
 
     },
     hobby: async (parent, { hobbyId }) => {
-        return Hobby.findOne({ _id: hobbyId });
+        return Hobby.findOne({ _id: hobbyId })
+        // .populate("categoryID")
+        // .populate("commentID")
+        // .populate("userID");
         // .populate("comments")
     },
     me: async (parent, args, context) => {
