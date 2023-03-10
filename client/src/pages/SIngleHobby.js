@@ -4,8 +4,8 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
-import CommentList from '../components/CommentList';
-import CommentForm from '../components/CommentForm';
+// import CommentList from '../components/CommentList';
+// import CommentForm from '../components/CommentForm';
 
 import { QUERY_SINGLE_HOBBY } from '../utils/queries';
 
@@ -28,7 +28,7 @@ const SingleThought = () => {
       <h3 className="card-header bg-dark text-light p-2 m-0">
         {hobby.title} <br />
         <span style={{ fontSize: '1rem' }}>
-          One of my hobby is {thought.title}
+          One of my hobby is {hobby.title}
         </span>
       </h3>
       <div className="bg-light py-4">
@@ -45,12 +45,6 @@ const SingleThought = () => {
         </blockquote>
       </div>
 
-      <div className="my-5">
-        <CommentList comments={user.comments} />
-      </div>
-      <div className="m-3 p-4" style={{ border: '1px dotted #1a1a1a' }}>
-        <CommentForm hobbyId={hobby._id} />
-      </div>
     </div>
   );
 };

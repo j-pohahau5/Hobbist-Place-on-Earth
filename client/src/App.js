@@ -14,7 +14,7 @@ import Login from './pages/Login';
 import SingleHobby from './pages/SingleHobby';
 import Header from './components/Header ';
 import Footer from './components/Footer';
-import Hobby from './pages/Hobby';
+import Hobby from './pages/Hobbies';
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -52,7 +52,7 @@ function App() {
                                 path="/"
                                 element={<Home />}
                             />
-                            <Route
+                            {/* <Route
                                 path="/login"
                                 element={<Login />}
                             />
@@ -70,7 +70,7 @@ function App() {
                                 path="/hobbies"
                                 element={<Hobby />}
 
-                            />
+                            /> */}
                         </Routes>
                     </div>
                     <Footer />

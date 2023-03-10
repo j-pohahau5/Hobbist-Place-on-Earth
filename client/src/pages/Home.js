@@ -1,14 +1,14 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
 
-import CategoryForm from '../components/CategoryForm';
-import CategoryList from '../components/CategoryList';
+import Header from '../components/Header ';
+import Footer from '../components/Footer';
 
-import { QUERY_CATEGORY } from '../utils/queries';
+// import { QUERY_CATEGORY } from '../utils/queries';
 
 const Home = () => {
-  const { loading, data } = useQuery(QUERY_CATEGORY);
-  const category = data?.categories || [];
+  // const { loading, data } = useQuery(QUERY_CATEGORY);
+  // const category = data?.categories || [];
 
   return (
     <main>
@@ -17,17 +17,16 @@ const Home = () => {
           className="col-12 col-md-10 mb-3 p-3"
           style={{ border: '1px dotted #1a1a1a' }}
         >
-          <CategoryForm />
+          <Header />
         </div>
+        <div>testing</div>
         <div className="col-12 col-md-8 mb-3">
-          {loading ? (
+
             <div>Loading...</div>
-          ) : (
-            <CategoryList
-              category={category}
-              title="Some Feed for Thought(s)..."
+          
+            <Footer
             />
-          )}
+          
         </div>
       </div>
     </main>
