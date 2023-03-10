@@ -9,7 +9,6 @@ const typeDefs = gql`
     hobbies: [Hobby]!
     comments: [Comment]!
     categories: [Category]!
-
   }
 
   type Category {
@@ -26,6 +25,7 @@ const typeDefs = gql`
     userId: [User]!
     HobbyId:[Hobby]!
   }
+
   type Hobby {
     _id: ID
     title: String
@@ -33,6 +33,7 @@ const typeDefs = gql`
     category: [Category]!
     users: [User]!
   }
+  
   type Auth {
     token: ID!
     user: User
@@ -52,7 +53,7 @@ const typeDefs = gql`
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
     addCategory(title: String!, description: String!): Category
-    addHobby(categoryId: ID!, title: String!, description: String!): Hobby
+    addHobby(categoryId: ID!, title: String!, description: String!): Category
     addComment(hobbyId: ID!, content: String!): Comment
     removeCategory(categoryId: ID!): Category
     removeHobby(hobbyId: ID!, categoryId: ID!): Hobby

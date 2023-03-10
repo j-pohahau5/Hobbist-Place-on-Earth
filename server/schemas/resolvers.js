@@ -18,21 +18,20 @@ const resolvers = {
       return Category.find(params).sort({ createdAt: -1 });
     },
     category: async (parent, { categoryId }) => {
-      return Category.findOne({ _id: categoryId });
+      return Category.findOne({ _id: categoryId }).populate({ path: 'hobbies', strictPopulate: false });
     //   .populate("hobbies")
     },
     hobbies: async (parent, { username }) => {
         const params = username ? { username } : {};
         return Hobby.find(params).sort({ createdAt: -1 });
-
     },
     hobby: async (parent, { hobbyId }) => {
-        return Hobby.findOne({ _id: hobbyId });
+        return Hobby.findOne({ _id: hobbyId }).populate({ path: 'comments', strictPopulate: false });
         // .populate("comments")
     },
     me: async (parent, args, context) => {
       if (context.user) {
-        return User.findOne({ _id: context.user._id });
+        return User.findOne({ _id: context.user._id }).populate({ path: 'hobbies', strictPopulate: false });
         // .populate("hobbies")
       }
       throw new AuthenticationError("You need to be logged in!");
@@ -132,26 +131,29 @@ const resolvers = {
     //   );
     // throw new AuthenticationError("You need to be logged in!");
     addHobby: async (parent, { title, description }, context) => {
-      if (context.user) {
-        const hobby = await Hobby.create({
-          title,
-          description,
-        });
-        await Category.findOneAndUpdate(
+      
+        // await Hobby.create({
+        //   title,
+        //   description,
+        // });
+        // await 
+        const hobby = Category.findOneAndUpdate(
           { _id: context.user._id },
-          { $addToSet: { hobbyId: hobby._id } }
+          { $addToSet: { hobbies: hobby._id } }
         );
         await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $addToSet: { hobbyId: hobby._id } }
+          { $addToSet: { hobbies: hobby._id } }
         );
 
         return hobby;
-      }
-      throw new AuthenticationError("You need to be logged in!");
+      
     },
+//     if (context.user) {
+// }
+// throw new AuthenticationError("You need to be logged in!");
     addComment: async (parent, { hobbyId, content }, context) => {
-      if (context.user) {
+
         return Hobby.findOneAndUpdate(
           { _id: hobbyId },
           {
@@ -164,11 +166,13 @@ const resolvers = {
             runValidators: true,
           }
         );
-      }
-      throw new AuthenticationError("You need to be logged in!");
     },
+    //   if (context.user) {
+    //     throw new AuthenticationError("You need to be logged in!");
+    // },
+    
     removeCategory: async (parent, { categoryId }, context) => {
-      if (context.user) {
+      
         const category = await Category.findOneAndDelete({
           _id: categoryId,
           thoughtAuthor: context.user.username,
@@ -180,11 +184,14 @@ const resolvers = {
         );
 
         return category;
-      }
-      throw new AuthenticationError("You need to be logged in!");
     },
+      
+    // },
+    // if (context.user) {
+    //     throw new AuthenticationError("You need to be logged in!");
+
     removeHobby: async (parent, { categoryId, hobbyId }, context) => {
-      if (context.user) {
+      
         return Category.findOneAndUpdate(
           { _id: categoryId },
           {
@@ -198,11 +205,13 @@ const resolvers = {
           },
           { new: true }
         );
-      }
-      throw new AuthenticationError("You need to be logged in!");
+      
     },
+    // if (context.user) {
+    // }
+    // throw new AuthenticationError("You need to be logged in!");
     removeComment: async (parent, { hobbyId, commentId }, context) => {
-      if (context.user) {
+      
         return Hobby.findOneAndUpdate(
           { _id: hobbyId },
           {
@@ -215,9 +224,11 @@ const resolvers = {
           },
           { new: true }
         );
-      }
-      throw new AuthenticationError("You need to be logged in!");
+      
     },
+    // if (context.user) {
+    // }
+    // throw new AuthenticationError("You need to be logged in!");
     // registerUser: async (_, { username, password }) => {
     //   try {
     //     const existingUser = await User.findOne({ username });
