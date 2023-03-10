@@ -15,13 +15,13 @@ const categorySchema = new Schema({
         minlength: 1,
         maxlength: 500,
     },
-    HobbyId: [
+    hobbies: [
         {
             type: Schema.Types.ObjectId,
             ref: 'Hobby',
         },
     ],
-    userID: [
+    users: [
         {
             type: Schema.Types.ObjectId,
             ref: 'User',
