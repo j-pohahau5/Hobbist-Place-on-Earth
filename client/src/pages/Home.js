@@ -22,7 +22,7 @@ const Home = () => {
 
             <div>Loading...</div>
 
-            />
+          
           
         </div>
       </div>
