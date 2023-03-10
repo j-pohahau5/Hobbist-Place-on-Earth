@@ -1,28 +1,5 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-<<<<<<< HEAD
-import { useMutation } from '@apollo/client';
-import { ADD_USER } from '../utils/mutations';
-import Auth from '../utils/auth';
-
-const Signup = () => {
-    const [formState, setFormState] = useState({
-      username: '',
-      email: '',
-      password: '',
-    });
-    const [addUser, { error, data }] = useMutation(ADD_USER);
-  
-    const handleChange = (event) => {
-      const { name, value } = event.target;
-  
-      setFormState({
-        ...formState,
-        [name]: value,
-      });
-    };
-}
-=======
 
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
@@ -121,4 +98,3 @@ const Signup = () => {
 };
 
 export default Signup;
->>>>>>> ab8f601 (added hobby page)
