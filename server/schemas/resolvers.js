@@ -130,23 +130,23 @@ const resolvers = {
     //     { $addToSet: { categoryId: category._id } }
     //   );
     // throw new AuthenticationError("You need to be logged in!");
-    addHobby: async (parent, { title, description }, context) => {
+    addHobby: async (parent, { categoryId, title, description }, context) => {
       
-        // await Hobby.create({
-        //   title,
-        //   description,
-        // });
-        // await 
-        const hobby = Category.findOneAndUpdate(
-          { _id: context.user._id },
+        const hobby =  await Hobby.create({
+          title,
+          description,
+        });
+        await Category.findOneAndUpdate(
+          { _id: categoryId },
           { $addToSet: { hobbies: hobby._id } }
         );
-        await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { $addToSet: { hobbies: hobby._id } }
-        );
-
+        // await User.findOneAndUpdate(
+        //   { _id: context.user._id },
+        //   { $addToSet: { hobbies: hobby._id } }
+        // );
+        
         return hobby;
+        
       
     },
 //     if (context.user) {
@@ -229,7 +229,7 @@ const resolvers = {
     // if (context.user) {
     // }
     // throw new AuthenticationError("You need to be logged in!");
-    // registerUser: async (_, { username, password }) => {
+    // addUser: async (_, { username, password }) => {
     //   try {
     //     const existingUser = await User.findOne({ username });
     //     if (existingUser) throw new Error("Username already exists");
@@ -248,7 +248,7 @@ const resolvers = {
     //     throw new Error(err);
     //   }
     // },
-    // loginUser: async (_, { username, password }) => {
+    // login: async (_, { username, password }) => {
     //   try {
     //     const user = await User.findOne({ username });
     //     if (!user) throw new Error("User not found");
@@ -278,6 +278,7 @@ const resolvers = {
     //     throw new Error(err);
     //   }
     // },
+    
     // addHobby: async (_, { title, description, category }) => {
     //   try {
     //     const newHobby = new Hobby({
@@ -307,7 +308,7 @@ const resolvers = {
     //   }
     // },
 
-    // deleteHobby: async (_, { hobbyId }) => {
+    // removeHobby: async (_, { hobbyId }) => {
     //   try {
     //     const hobby = await Hobby.findByIdAndRemove(hobbyId);
     //     if (!hobby) throw new Error("Hobby not found");
@@ -420,7 +421,7 @@ const resolvers = {
     //   }
     // },
 
-    // deleteComment: async (_, { commentId }) => {
+    // removeComment: async (_, { commentId }) => {
     //   try {
     //     const comment = await Comment.findByIdAndRemove(commentId);
     //     if (!comment) throw new Error("comment not found");
@@ -503,7 +504,7 @@ const resolvers = {
     //   }
     // },
 
-    // deleteCategory: async (_, { categoryId }) => {
+    // removeCategory: async (_, { categoryId }) => {
     //   try {
     //     const category = await Category.findByIdAndRemove(categoryId);
     //     if (!category) throw new Error("Category not found");

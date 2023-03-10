@@ -15,19 +15,24 @@ const hobbySchema = new Schema({
         minlength: 5,
         maxlength: 500,
     },
-    categoryID: [
+    categories: [
         {
             type: Schema.Types.ObjectId,
             ref: 'Category',
         },
     ],
-    commentID: [
+    comments: [
         {
-            type: Schema.Types.ObjectId,
-            ref: 'Comment',
-        },
+            content: {
+              type: String,
+              required: true,
+              minlength: 1,
+              maxlength: 280,
+            }
+        }
+        
     ],
-    userID: [
+    users: [
         {
             type: Schema.Types.ObjectId,
             ref: 'User',

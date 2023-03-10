@@ -30,8 +30,9 @@ const typeDefs = gql`
     _id: ID
     title: String
     description: String
-    category: [Category]!
+    categories: [Category]!
     users: [User]!
+    comments: [Comment]!
   }
   
   type Auth {
@@ -53,12 +54,12 @@ const typeDefs = gql`
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
     addCategory(title: String!, description: String!): Category
-    addHobby(categoryId: ID!, title: String!, description: String!): Category
-    addComment(hobbyId: ID!, content: String!): Comment
+    addHobby(categoryId: ID!, title: String!, description: String!): Hobby
+    addComment(hobbyId: ID!, content: String!): Hobby
     removeCategory(categoryId: ID!): Category
     removeHobby(hobbyId: ID!, categoryId: ID!): Hobby
     removeComment(hobbyId: ID!, commentId: ID!): Comment
   }
 `;
-
+// 
 module.exports = typeDefs;

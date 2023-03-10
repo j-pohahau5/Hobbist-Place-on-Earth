@@ -19,19 +19,19 @@ const userSchema = new Schema({
     required: true,
     minlength: 5,
   },
-  hobbyId: [
+  hobbies: [
     {
       type: Schema.Types.ObjectId,
       ref: 'Hobby',
     },
   ],
-  commentId: [
+  comments: [
     {
       type: Schema.Types.ObjectId,
       ref: 'Comment',
     },
   ],
-  categoryId: [
+  categories: [
     {
       type: Schema.Types.ObjectId,
       ref: 'Category',
