@@ -32,6 +32,7 @@ const Signup = () => {
         variables: { ...formState },
       });
 
+
       Auth.login(data.addUser.token);
     } catch (e) {
       console.error(e);
@@ -98,3 +99,4 @@ const Signup = () => {
 };
 
 export default Signup;
+
