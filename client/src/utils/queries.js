@@ -22,7 +22,7 @@ export const QUERY_USER = gql`
 
 export const QUERY_CATEGORY = gql`
   query getCategory($category: ID) {
-    products(category: $category) {
+    hobbies {
       _id
       title
       description
