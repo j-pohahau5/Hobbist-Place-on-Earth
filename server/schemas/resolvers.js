@@ -15,7 +15,7 @@ const resolvers = {
     },
     categories: async (parent, { username }) => {
       const params = username ? { username } : {};
-      return Category.find(params).sort({ createdAt: -1 });
+      return (await Category.find(params).sort({ createdAt: -1 }));
     },
     category: async (parent, { categoryId }) => {
       return Category.findOne({ _id: categoryId }).populate({ path: 'hobbies', strictPopulate: false });
@@ -26,7 +26,11 @@ const resolvers = {
         return Hobby.find(params).sort({ createdAt: -1 });
     },
     hobby: async (parent, { hobbyId }) => {
-        return Hobby.findOne({ _id: hobbyId }).populate({ path: 'comments', strictPopulate: false });
+        return Hobby.findOne({ _id: hobbyId }).populate({ path: 'comments', strictPopulate: false })
+        return Hobby.find(params).sort({ createdAt: -1 })
+        // .populate("categoryID")
+        // .populate("commentID")
+        // .populate("userID");
         // .populate("comments")
     },
     me: async (parent, args, context) => {
