@@ -58,6 +58,18 @@ export const QUERY_ALL_HOBBIES = gql`
   }
 `;
 
+export const QUERY_SINGLE_HOBBY = gql`
+  query getSingleHobby($hobbyId: ID!) {
+    hobby(hobbytId: $hobbyId) {
+      _id
+      title
+      category {
+        title
+      }
+    }
+  }
+`;
+
 export const QUERY_ME = gql`
   query me {
     me {
