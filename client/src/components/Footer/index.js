@@ -16,7 +16,7 @@ const Footer = () => {
           </button>
         )}
         <h4>
-          Made with{' '}
+          Hobbiest Place on Earth{' '}
           <span
             className="emoji"
             role="img"
@@ -25,7 +25,7 @@ const Footer = () => {
           >
             ❤️
           </span>{' '}
-          by the Tech Thoughts team.
+          by the Team 7.
         </h4>
       </div>
     </footer>

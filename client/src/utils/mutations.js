@@ -33,19 +33,38 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_CATEGORY = gql`
-  mutation addCategory {
-$title: String!
-$description: String!
+  mutation addCategory ( $title: $title, $description: $description){
+    addCategory ( $title: $title, $description: $description) {
+      _id
+      title
+      description
       hobby {
         _id
-        name
-        description
-        price
-        quantity
-        category {
-          name
-        }
+        title
+      }
+      user {
+        _id
+        firstname
       }
     }
+    
   }
+`;
+
+export const ADD_HOBBY = gql`
+mutation addHobby ( $title: $title, $description: $description){
+  addHobby ( $title: $title, $description: $description) {
+    title
+    description
+    category {
+      _id
+      title
+    }
+    user {
+      _id
+      firstname
+    }
+  }
+  
+}
 `;
