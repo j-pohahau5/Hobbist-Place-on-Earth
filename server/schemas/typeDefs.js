@@ -30,8 +30,9 @@ const typeDefs = gql`
     _id: ID
     title: String
     description: String
-    category: [Category]!
+    categories: [Category]!
     users: [User]!
+    comments: [Comment]!
   }
   type Auth {
     token: ID!
