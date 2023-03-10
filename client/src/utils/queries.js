@@ -33,7 +33,7 @@ export const QUERY_CATEGORY = gql`
 
 export const QUERY_ALL_COMMENTS = gql`
   {
-    products {
+    comments {
       _id
       content
       user {
@@ -48,7 +48,7 @@ export const QUERY_ALL_COMMENTS = gql`
 
 export const QUERY_ALL_HOBBIES = gql`
   {
-    products {
+    hobbies {
       _id
       title
       category {
@@ -62,13 +62,16 @@ export const QUERY_ME = gql`
   query me {
     me {
       _id
-      username
-      email
-      thoughts {
+      firstname
+      lastname
+      categories {
         _id
-        thoughtText
-        thoughtAuthor
-        createdAt
+        title
+        hobby {
+          _id
+          title
+          description
+        }
       }
     }
   }
