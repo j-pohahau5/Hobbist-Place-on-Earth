@@ -1,14 +1,14 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
 
-import CommentList from '../components/CommentList';
-import HobbyList from '../components/HobbyList';
+import CategoryForm from '../components/CategoryForm';
+import CategoryList from '../components/CategoryList';
 
 import { QUERY_CATEGORY } from '../utils/queries';
 
 const Home = () => {
-  const { loading, data } = useQuery(QUERY_HOBBIES);
-  const hobbies = data?.hobbies || [];
+  const { loading, data } = useQuery(QUERY_CATEGORY);
+  const category = data?.categories || [];
 
   return (
     <main>
