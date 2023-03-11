@@ -90,11 +90,12 @@ const resolvers = {
     // },
   },
   Mutation: {
-    // addUser: async (parent, { username, email, password }) => {
-    //   const user = await User.create({ username, email, password });
-    //   const token = signToken(user);
-    //   return { token, user };
-    // },
+    addUser: async (parent, { username, email, password }) => {
+      const user = await User.create({ username, email, password });
+      const token = signToken(user);
+      return { token, user };
+    },
+
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
 
@@ -112,18 +113,14 @@ const resolvers = {
 
       return { token, user };
     },
+
     addCategory: async (parent, { title, description }, context) => {
       
         const category = await Category.create({
           title,
           description,
         });
-
-        
-
         return category;
-      
-      
     },
     // if (context.user) {}
     // await User.findOneAndUpdate(
@@ -150,6 +147,7 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in!");
     },
+
     addComment: async (parent, { hobbyId, content }, context) => {
       if (context.user) {
         return Hobby.findOneAndUpdate(
@@ -218,41 +216,27 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in!");
     },
-    addUser: async (_, { username, email, password }) => {
-      try {
-        const existingUser = await User.findOne({ username });
-        if (existingUser) throw new Error("Username already exists");
-
-        const hashedPassword = await bcrypt.hash(password, 12);
-        const newUser = new User({
-          username,
-          email,
-          password: hashedPassword,
-        });
-        const savedUser = await newUser.save();
-
-        const token = signToken(savedUser);
-
-        return { user: savedUser, token };
-      } catch (err) {
-        throw new Error(err);
-      }
-    },
-    // loginUser: async (_, { username, password }) => {
+    // addUser: async (_, { username, email, password }) => {
     //   try {
-    //     const user = await User.findOne({ username });
-    //     if (!user) throw new Error("User not found");
+    //     const existingUser = await User.findOne({ username });
+    //     if (existingUser) throw new Error("Username already exists");
 
-    //     const isPasswordCorrect = await bcrypt.compare(password, user.password);
-    //     if (!isPasswordCorrect) throw new Error("Invalid password");
+    //     const hashedPassword = await bcrypt.hash(password, 12);
+    //     const newUser = new User({
+    //       username,
+    //       email,
+    //       password: hashedPassword,
+    //     });
+    //     const savedUser = await newUser.save();
 
-    //     const token = signToken(user);
+    //     const token = signToken(savedUser);
 
-    //     return { user, token };
+    //     return { user: savedUser, token };
     //   } catch (err) {
     //     throw new Error(err);
     //   }
     // },
+
 
     // logoutUser: async (_, _, { req }) => {
     //   try {
@@ -502,6 +486,7 @@ const resolvers = {
     //     throw new Error(err);
     //   }
     // },
+
   },
 };
 
