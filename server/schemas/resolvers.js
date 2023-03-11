@@ -90,11 +90,11 @@ const resolvers = {
     // },
   },
   Mutation: {
-    addUser: async (parent, { username, email, password }) => {
-      const user = await User.create({ username, email, password });
-      const token = signToken(user);
-      return { token, user };
-    },
+    // addUser: async (parent, { username, email, password }) => {
+    //   const user = await User.create({ username, email, password });
+    //   const token = signToken(user);
+    //   return { token, user };
+    // },
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
 
@@ -218,25 +218,26 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in!");
     },
-    // registerUser: async (_, { username, password }) => {
-    //   try {
-    //     const existingUser = await User.findOne({ username });
-    //     if (existingUser) throw new Error("Username already exists");
+    addUser: async (_, { username, email, password }) => {
+      try {
+        const existingUser = await User.findOne({ username });
+        if (existingUser) throw new Error("Username already exists");
 
-    //     const hashedPassword = await bcrypt.hash(password, 12);
-    //     const newUser = new User({
-    //       username,
-    //       password: hashedPassword,
-    //     });
-    //     const savedUser = await newUser.save();
+        const hashedPassword = await bcrypt.hash(password, 12);
+        const newUser = new User({
+          username,
+          email,
+          password: hashedPassword,
+        });
+        const savedUser = await newUser.save();
 
-    //     const token = signToken(savedUser);
+        const token = signToken(savedUser);
 
-    //     return { user: savedUser, token };
-    //   } catch (err) {
-    //     throw new Error(err);
-    //   }
-    // },
+        return { user: savedUser, token };
+      } catch (err) {
+        throw new Error(err);
+      }
+    },
     // loginUser: async (_, { username, password }) => {
     //   try {
     //     const user = await User.findOne({ username });
