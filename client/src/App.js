@@ -10,7 +10,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 import Home from './pages/Home';
-// import Signup from './pages/Signup';
+import Signup from './pages/Signup';
 // import Login from './pages/Login';
 // import SingleHobby from './pages/SingleHobby';
 import Header from './components/Header ';
@@ -58,6 +58,10 @@ function App() {
                                 path="/login"
                                 element={<Login />}
                             />
+                            <Route
+                                path="/signup"
+                                element={<Signup />}
+                            /> 
      
                             {/*<Route
                                 path="/signup"
