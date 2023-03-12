@@ -12,7 +12,7 @@ import Home from './pages/Home';
 // import Signup from './pages/Signup';
 // import Login from './pages/Login';
 import SingleHobby from './pages/SingleHobby';
-import Header from './components/Header ';
+import Header from './components/Header';
 import Footer from './components/Footer';
 // import Hobby from './pages/Hobbies';
 
