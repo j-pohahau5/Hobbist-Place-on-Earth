@@ -22,6 +22,8 @@ const typeDefs = gql`
   type Comment {
     _id: ID
     content: String
+    likes: Int
+    disLikes: Int
     users: [User]!
     hobbies:[Hobby]!
   }
@@ -30,12 +32,12 @@ const typeDefs = gql`
     _id: ID
     title: String
     description: String
+    likes: Int
+    disLikes: Int
 
     comments: [Comment]!
     categories: [Category]!
-
     users: [User]!
-    comments: [Comment]!
   }
   
   type Auth {
@@ -60,9 +62,18 @@ const typeDefs = gql`
     addCategory(title: String!, description: String!): Category
     addHobby(categoryId: ID!, title: String!, description: String!): Hobby
     addComment(hobbyId: ID!, content: String!): Comment
+    addHobbyLike(_id: String!, likes: Int!): Hobby
+    addCommentLike(_id: String!, likes: Int!): Comment
+    addHobbyDisLike(_id: String!, disLikes: Int!): Hobby
+    addCommentDisLike(_id: String!, disLikes: Int!): Comment
+    createVote(_id: String!, techNum: Int!): Matchup
     removeCategory(categoryId: ID!): Category
     removeHobby(hobbyId: ID!): Hobby
     removeComment(hobbyId: ID!, commentId: ID!): Comment
+    removeHobbyLike(_id: String!, likes: Int!): Hobby
+    removeCommentLike(_id: String!, likes: Int!): Comment
+    removeHobbyDisLike(_id: String!, disLikes: Int!): Hobby
+    removeCommentDisLike(_id: String!, disLikes: Int!): Comment
   }
 `;
 // type logoutMessage {

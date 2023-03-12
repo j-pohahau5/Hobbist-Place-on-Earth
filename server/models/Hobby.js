@@ -15,7 +15,14 @@ const hobbySchema = new Schema({
         minlength: 5,
         maxlength: 500,
     },
-
+    likes: {
+        type: Number,
+        default: 0,
+    },
+    disLikes: {
+        type: Number,
+        default: 0,
+    },
     categories: [
         {
             type: Schema.Types.ObjectId,
