@@ -8,13 +8,13 @@ const commentSchema = new Schema({
         minlength: 1,
         maxlength: 500,
     },
-    userId: [
+    users: [
         {
             type: Schema.Types.ObjectId,
             ref: 'User',
         },
     ],
-    HobbyId: [
+    hobbies: [
         {
             type: Schema.Types.ObjectId,
             ref: 'Hobby',
