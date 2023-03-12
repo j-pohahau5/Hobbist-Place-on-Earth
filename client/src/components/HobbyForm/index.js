@@ -43,5 +43,27 @@ function HobbyForm(){
       console.error('Error creating hobby:', error);
     }
   };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <label>
+        Title:
+        <input type="text" value={title} onChnage={(e) => setTitle(e.target.value)} />
+      </label>
+      <label>
+        Description:
+        <textarea value={description} onChage={(e) => setDescription(e.target.value)}/>
+      </label>
+      <label>
+        Category:
+        <input type="text" value={category} onChange={(e) => setCategory(e.target.value)}/>
+      </label>
+      <button type="submit" disabled={loading}>
+        {loading ? 'Creating...' : 'Create Hobby'}
+      </button>
+      {error && <p>Error creating hobby: {error.message}</p>}
+    </form>
+  );
 }
+
 export default HobbyForm;
