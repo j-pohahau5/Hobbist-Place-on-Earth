@@ -8,6 +8,14 @@ const commentSchema = new Schema({
         minlength: 1,
         maxlength: 500,
     },
+    likes: {
+        type: Number,
+        default: 0,
+    },
+    disLikes: {
+        type: Number,
+        default: 0,
+    },
     users: [
         {
             type: Schema.Types.ObjectId,
