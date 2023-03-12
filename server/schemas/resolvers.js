@@ -10,8 +10,8 @@ const resolvers = {
     //   .populate("hobbies")
     },
     user: async (parent, { username }) => {
-      return User.findOne({ username });
-    //   .populate("hobbies")
+      return User.findOne({ username })
+      .populate("hobbies");
     },
     categories: async (parent, { username }) => {
       const params = username ? { username } : {};
@@ -82,12 +82,12 @@ const resolvers = {
     //   }
     // },
     // // this is for the user to get to their profile and see only their hobbies
-    // me: async (parent, args, context) => {
-    //   if (context.user) {
-    //     return User.findOne({ _id: context.user._id }).populate("hobbies");
-    //   }
-    //   throw new AuthenticationError("You need to be logged in!");
-    // },
+    me: async (parent, args, context) => {
+      if (context.user) {
+        return User.findOne({ _id: context.user._id }).populate("hobbies");
+      }
+      throw new AuthenticationError("You need to be logged in!");
+    },
   },
   Mutation: {
     addUser: async (parent, { username, email, password }) => {
@@ -232,22 +232,6 @@ const resolvers = {
     //     const token = signToken(savedUser);
 
     //     return { user: savedUser, token };
-    //   } catch (err) {
-    //     throw new Error(err);
-    //   }
-    // },
-
-
-    // logoutUser: async (_, _, { req }) => {
-    //   try {
-    //     if (!req.user) throw new Error("You are not authenticated");
-
-    //     req.user.tokens = req.user.tokens.filter((token) => {
-    //       token.token !== req.token;
-    //     });
-    //     await req.user.save();
-
-    //     return { message: "Successfully logged out" };
     //   } catch (err) {
     //     throw new Error(err);
     //   }
@@ -486,7 +470,18 @@ const resolvers = {
     //     throw new Error(err);
     //   }
     // },
-
+    // loginUser: async (_, { username, password }) => {
+    //   try {
+    //     const user = await User.findOne({ username });
+    //     if (!user) throw new Error("User not found");
+    //     const isPasswordCorrect = await bcrypt.compare(password, user.password);
+    //     if (!isPasswordCorrect) throw new Error("Invalid password");
+    //     const token = signToken(user);
+    //     return { user, token };
+    //   } catch (err) {
+    //     throw new Error(err);
+    //   }
+    // },
   },
 };
 
