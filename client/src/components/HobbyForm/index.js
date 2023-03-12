@@ -15,4 +15,33 @@ const ADD_HOBBY = gql`
   }
 `;
 
+function HobbyForm(){
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
+  const [category, setCategory] = useState('');
+
+  const [addHobby, { loading, error}] = useMutation(ADD_HOBBY);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await addHobby({
+        variables: {
+          categoryId: category,
+          title,
+          description,
+        },
+      });
+      
+      setTitle('');
+      setDescription('');
+      setCategory('');
+
+      console.log('New hobby created:', response.data.addHobby);
+    } catch (error) {
+      console.error('Error creating hobby:', error);
+    }
+  };
+}
 export default HobbyForm;
