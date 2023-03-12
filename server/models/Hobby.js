@@ -24,9 +24,14 @@ const hobbySchema = new Schema({
     ],
     comments: [
         {
-            type: Schema.Types.ObjectId,
-            ref: 'Comment',
-        },
+            content: {
+              type: String,
+              required: true,
+              minlength: 1,
+              maxlength: 280,
+            }
+        }
+        
     ],
     users: [
         {
