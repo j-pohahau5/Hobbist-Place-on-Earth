@@ -17,25 +17,14 @@ export const LOGIN_USER = gql`
       token
       user {
         _id
-        username
       }
     }
   }
 `;
 
 export const ADD_USER = gql`
-  mutation addUser(
-    $firstName: String!
-    $lastName: String!
-    $email: String!
-    $password: String!
-  ) {
-    addUser(
-      firstName: $firstName
-      lastName: $lastName
-      email: $email
-      password: $password
-    ) {
+  mutation addUser($username: String!, $email: String!, $password: String!) {
+    addUser(username: $username, email: $email, password: $password) {
       token
       user {
         _id
@@ -45,8 +34,8 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_CATEGORY = gql`
-  mutation addCategory ( $title: $title, $description: $description){
-    addCategory ( $title: $title, $description: $description) {
+  mutation addCategory ( $title: String!, $description: String!){
+    addCategory ( title: $title, description: $description) {
       _id
       title
       description
@@ -56,7 +45,6 @@ export const ADD_CATEGORY = gql`
       }
       user {
         _id
-        firstname
       }
     }
     
@@ -64,8 +52,8 @@ export const ADD_CATEGORY = gql`
 `;
 
 export const ADD_HOBBY = gql`
-mutation addHobby ( $title: $title, $description: $description){
-  addHobby ( $title: $title, $description: $description) {
+mutation addHobby ( $title: String!, $description: String!){
+  addHobby ( title: $title, description: $description) {
     title
     description
     category {
@@ -74,7 +62,6 @@ mutation addHobby ( $title: $title, $description: $description){
     }
     user {
       _id
-      firstname
     }
   }
   
