@@ -1,8 +1,9 @@
 {
     "name": "server",
     "version": "0.1.0",
-    "description": "Server side code for 'Hobbist Place on Earth' Platform",
+    "private": true,
     "main": "server.js",
+    "proxy": "http://localhost:3001/",
     "scripts": {
         "start": "node server.js",
         "seed": "node seeders/seed.js",
@@ -18,13 +19,14 @@
     "license": "MIT",
     "dependencies": {
         "apollo-server-express": "^3.6.2",
-        "bcrypt": "^5.0.0",
+        "bcrypt": "^4.0.1",
         "express": "^4.17.2",
         "graphql": "^16.3.0",
         "jsonwebtoken": "^8.5.1",
         "mongoose": "^6.1.8"
+
     },
     "devDependencies": {
-        "nodemon": "^2.0.21"
+        "nodemon": "^2.0.3"
     }
 }

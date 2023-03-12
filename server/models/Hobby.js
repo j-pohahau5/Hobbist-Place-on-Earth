@@ -15,7 +15,8 @@ const hobbySchema = new Schema({
         minlength: 5,
         maxlength: 500,
     },
-    category: [
+
+    categories: [
         {
             type: Schema.Types.ObjectId,
             ref: 'Category',
