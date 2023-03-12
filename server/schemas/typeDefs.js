@@ -22,8 +22,8 @@ const typeDefs = gql`
   type Comment {
     _id: ID
     content: String
-    userId: [User]!
-    HobbyId:[Hobby]!
+    users: [User]!
+    hobbies:[Hobby]!
   }
 
   type Hobby {
@@ -48,7 +48,7 @@ const typeDefs = gql`
     user(username: String!): User
     categories: [Category]
     category(categoryId: ID!): Category
-    hobbies: [Hobby]
+    hobbies(categories: ID!): [Hobby]
     hobby(hobbyId: ID!): Hobby
     me: User
   }
@@ -59,15 +59,13 @@ const typeDefs = gql`
     logoutUser: logoutMessage
     addCategory(title: String!, description: String!): Category
     addHobby(categoryId: ID!, title: String!, description: String!): Hobby
-    addComment(hobbyId: ID!, content: String!): Hobby
+    addComment(hobbyId: ID!, content: String!): Comment
     removeCategory(categoryId: ID!): Category
-    removeHobby(hobbyId: ID!, categoryId: ID!): Hobby
+    removeHobby(hobbyId: ID!): Hobby
     removeComment(hobbyId: ID!, commentId: ID!): Comment
   }
-
-  type logoutMessage {
-    message: String!
-  }
 `;
-// 
+// type logoutMessage {
+  //   message: String!
+  // }
 module.exports = typeDefs;
