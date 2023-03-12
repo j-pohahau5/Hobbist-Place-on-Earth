@@ -6,7 +6,7 @@ const typeDefs = gql`
     username: String
     email: String
     password: String
-    hobbies: [Hobby]!
+    hobbyId: [Hobby]!
     comments: [Comment]!
     categories: [Category]!
   }
@@ -30,7 +30,10 @@ const typeDefs = gql`
     _id: ID
     title: String
     description: String
+
+    comments: [Comment]!
     categories: [Category]!
+
     users: [User]!
     comments: [Comment]!
   }
@@ -53,12 +56,17 @@ const typeDefs = gql`
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
+    logoutUser: logoutMessage
     addCategory(title: String!, description: String!): Category
     addHobby(categoryId: ID!, title: String!, description: String!): Hobby
     addComment(hobbyId: ID!, content: String!): Hobby
     removeCategory(categoryId: ID!): Category
     removeHobby(hobbyId: ID!, categoryId: ID!): Hobby
     removeComment(hobbyId: ID!, commentId: ID!): Comment
+  }
+
+  type logoutMessage {
+    message: String!
   }
 `;
 // 
