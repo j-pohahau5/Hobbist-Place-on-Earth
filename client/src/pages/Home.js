@@ -6,12 +6,12 @@ import Footer from '../components/Footer';
 import HobbyForm from '../components/HobbyForm';
 // import { Category } from '../../../server/models';
 import CategoryForm from '../components/CategoryForm';
-
-// import { QUERY_CATEGORY } from '../utils/queries';
+import CategoryList from '../components/CategoryList';
+import { QUERY_CATEGORIES } from '../utils/queries';
 
 const Home = () => {
-  // const { loading, data } = useQuery(QUERY_CATEGORY);
-  // const category = data?.categories || [];
+  const { loading, data } = useQuery(QUERY_CATEGORIES);
+  const categories = data?.categories || [];
 
   return (
     <main>
@@ -29,12 +29,14 @@ const Home = () => {
           <CategoryForm />
         </div>
         <div className="col-12 col-md-8 mb-3">
-
+          {loading ? (
             <div>Loading...</div>
-          
-            <Footer
+          ) : (
+            <CategoryList
+            categories={categories}
+              title="Some Feed for Thought(s)..."
             />
-          
+          )}
         </div>
       </div>
     </main>
