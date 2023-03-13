@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { useMutation } from '@apollo/client';
-
+import { useMutation, useQuery } from '@apollo/client';
+import Select from 'react-select';
 import { ADD_HOBBY } from '../../utils/mutations';
 import { QUERY_CATEGORIES, QUERY_CATEGORY } from '../../utils/queries';
 
@@ -10,11 +10,15 @@ import Auth from '../../utils/auth';
 const HobbyForm = () => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
-  const [category, setCategory] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState(null);
   const [characterCount, setCharacterCount] = useState(0);
 
-  const [addHobby, { loading, error}] = useMutation(ADD_HOBBY, {
-    update(cache, { data: { addHobby} }) {
+  const { loading, data } = useQuery(QUERY_CATEGORIES);
+
+  const categories = data?.categories || [];
+
+  const [addHobby, { loading: mutationLoading, error: mutationError }] = useMutation(ADD_HOBBY, {
+    update(cache, { data: { addHobby } }) {
       try{
         
         const { categories } = cache.readQuery({ query: QUERY_CATEGORY });
@@ -43,17 +47,17 @@ const HobbyForm = () => {
     e.preventDefault();
 
     try {
-      const { data } = await addHobby({
+      await addHobby({
         variables: {
-          // categories: category,
           title,
           description,
+          categoryId: selectedCategory.value,
         },
       });
       
       setTitle('');
       setDescription('');
-      setCategory('');
+      setSelectedCategory(null);
 
     } catch (error) {
       console.error('Error creating hobby:', error);
@@ -71,6 +75,11 @@ const HobbyForm = () => {
     setCharacterCount(title.length + description.length);
   };
 
+  const options = categories.map((category) => ({
+    value: category._id,
+    label: category.title,
+  }))
+
   return (
     <div>
       <h3>Add a New Hobby</h3>
@@ -78,7 +87,7 @@ const HobbyForm = () => {
         <>
           <p
             className={`m-0 ${
-              characterCount === 280 || error ? 'text-danger' : ''
+              characterCount === 280 || mutationError ? 'text-danger' : ''
             }`}
           >
             Character Count: {characterCount}/280
@@ -99,19 +108,21 @@ const HobbyForm = () => {
                 onChange={handleChange}
               />
             </label>
-            {/* <label>
+            <label>
               Category:
-              <input
-                value={category} 
-                onChange={(e) => setCategory(e.target.value)}
+              <Select
+                options={options}
+                value={selectedCategory}
+                onChange={setSelectedCategory}
+                isClearable 
               />
-            </label> */}
+            </label>
             <button type="submit" disabled={!title || !description}>
               {loading ? 'Creating...' : 'Create Hobby'}
             </button>
-            {error && (
+            {mutationError && (
               <div className='col-12 my-3 bg-danger text-white p-3'>
-                Error creating hobby: {error.message}
+                Error creating hobby: {mutationError.message}
               </div>
             )}
           </form>
