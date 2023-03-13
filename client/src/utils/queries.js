@@ -2,7 +2,7 @@ import { gql } from '@apollo/client';
 
 
 export const QUERY_USER = gql`
-  {
+  query users{
     user {
       firstName
       lastName
@@ -20,7 +20,7 @@ export const QUERY_USER = gql`
 `;
 
 export const QUERY_CATEGORY = gql`
-  query getCategory($category: ID) {
+  query category($category: ID) {
     hobbies {
       _id
       title
@@ -31,7 +31,7 @@ export const QUERY_CATEGORY = gql`
 `;
 
 export const QUERY_CATEGORIES = gql`
-  query getCategories {
+  query categories {
     category {
       _id
       title
@@ -41,7 +41,7 @@ export const QUERY_CATEGORIES = gql`
 `;
 
 export const QUERY_ALL_COMMENTS = gql`
-  {
+  query comments{
     comments {
       _id
       content
@@ -56,7 +56,7 @@ export const QUERY_ALL_COMMENTS = gql`
 
 
 export const QUERY_ALL_HOBBIES = gql`
-  {
+ query hobbies{
     hobbies {
       _id
       title
@@ -68,7 +68,7 @@ export const QUERY_ALL_HOBBIES = gql`
 `;
 
 export const QUERY_SINGLE_HOBBY = gql`
-  query getSingleHobby($hobbyId: ID!) {
+  query hobby($hobbyId: ID!) {
     hobby(hobbyId: $hobbyId) {
       _id
       title
