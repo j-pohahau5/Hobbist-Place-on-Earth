@@ -1,3 +1,4 @@
+
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
@@ -191,6 +192,8 @@ button,
 [type='reset'],
 [type='submit'] {
   -webkit-appearance: button;
+  background-color: #8938ec;
+  color: #cccccc;
 }
 
 /**
@@ -1333,6 +1336,11 @@ label form [type='radio'] {
 .col-12 {
   flex: 0 0 100%;
   max-width: 100%;
+  border-radius: 15px;
+  border-color: #4cc9f0;
+  padding: 20px;
+  background-color: #4cc9f0;
+  color: #0D3B66;
 }
 
 /* col-sm */
