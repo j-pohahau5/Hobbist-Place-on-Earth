@@ -1012,12 +1012,12 @@ a:hover {
 }
 
 .btn.btn-primary {
-  background-color: #2d3e50;
+  background-color: #457b9d;
   color: #d9e9e8;
 }
 
 .btn.btn-primary:hover {
-  background-color: #57779a;
+  background-color: #52b788;
 }
 
 .btn.btn-danger {
@@ -1086,6 +1086,10 @@ a:hover {
 .card {
   border: 1px solid #1a1a1a;
   margin-bottom: 1rem;
+  border-radius: 15px;
+  padding: 25px;
+  background-color:#0D3B66;
+  color: blanchedalmond;
 }
 
 .card .card-header {
