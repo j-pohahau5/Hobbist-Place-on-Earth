@@ -30,6 +30,16 @@ export const QUERY_CATEGORY = gql`
   }
 `;
 
+export const QUERY_CATEGORIES = gql`
+  query getCategories {
+    category {
+      _id
+      title
+      description
+    }
+  }
+`;
+
 export const QUERY_ALL_COMMENTS = gql`
   {
     comments {
