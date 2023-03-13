@@ -54,7 +54,7 @@ const HobbyForm = () => {
           categoryId: selectedCategory.value,
         },
       });
-      
+
       setTitle('');
       setDescription('');
       setSelectedCategory(null);

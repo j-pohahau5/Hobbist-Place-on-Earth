@@ -52,8 +52,8 @@ export const ADD_CATEGORY = gql`
 `;
 
 export const ADD_HOBBY = gql`
-mutation addHobby ( $title: String!, $description: String!){
-  addHobby ( title: $title, description: $description) {
+mutation addHobby ( $categoryId: ID!, $title: String!, $description: String!){
+  addHobby ( categoryId: $categoryId, title: $title, description: $description) {
     title
     description
     categories {
