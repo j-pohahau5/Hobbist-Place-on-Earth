@@ -46,7 +46,7 @@ export const QUERY_ALL_COMMENTS = gql`
       _id
       content
       user {
-        firstname
+        username
       }
       hobby { category }
     }
@@ -60,7 +60,7 @@ export const QUERY_ALL_HOBBIES = gql`
     hobbies {
       _id
       title
-      category {
+      categories {
         title
       }
     }
@@ -69,10 +69,10 @@ export const QUERY_ALL_HOBBIES = gql`
 
 export const QUERY_SINGLE_HOBBY = gql`
   query getSingleHobby($hobbyId: ID!) {
-    hobby(hobbytId: $hobbyId) {
+    hobby(hobbyId: $hobbyId) {
       _id
       title
-      category {
+      categories {
         title
       }
     }
@@ -83,8 +83,7 @@ export const QUERY_ME = gql`
   query me {
     me {
       _id
-      firstname
-      lastname
+      username
       categories {
         _id
         title

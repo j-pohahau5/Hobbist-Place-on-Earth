@@ -65,11 +65,10 @@ const HobbyForm = () => {
 
     if(name === 'description' && value.length <= 280) {
       setDescription(value);
-      setCharacterCount(value.length);
     } else {
       setTitle(value);
-      setCharacterCount(value.length);
     }
+    setCharacterCount(title.length + description.length);
   };
 
   return (
