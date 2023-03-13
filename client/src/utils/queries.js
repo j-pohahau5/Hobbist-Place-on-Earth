@@ -4,12 +4,14 @@ import { gql } from '@apollo/client';
 export const QUERY_USER = gql`
   query users{
     user {
-      firstName
-      lastName
+      _id
+      username
+      email
       categories {
         _id
         title
-        hobby {
+        description
+        hobbies {
           _id
           title
           description
@@ -21,21 +23,31 @@ export const QUERY_USER = gql`
 
 export const QUERY_CATEGORY = gql`
   query category($category: ID) {
-    hobbies {
+    category(categoryId: $category) {
       _id
       title
       description
-      hobbies
-    }
+      hobbies {
+        _id
+        title
+        description
+        hobbies
+      }
+    }  
   }
 `;
 
 export const QUERY_CATEGORIES = gql`
   query categories {
-    category {
+    categories {
       _id
       title
       description
+      hobbies{
+        _id
+        title
+        description
+      }
     }
   }
 `;

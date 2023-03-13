@@ -17,7 +17,7 @@ const HobbyForm = () => {
 
   const categories = data?.categories || [];
 
-  const [addHobby, { loading: mutationLoading, error: mutationError }] = useMutation(ADD_HOBBY, {
+  const [addHobby, { loading: Loading, error: mutationError }] = useMutation(ADD_HOBBY, {
     update(cache, { data: { addHobby } }) {
       try{
         
