@@ -88,11 +88,13 @@ const resolvers = {
 
       throw new AuthenticationError("You need to be logged in!");
     },
-    addHobby: async (parent, { title, description }, context) => {
+    addHobby: async (parent, { title, description, categoryId }, context) => {
+      console.log(context.user._id)
       if (context.user) {
         const hobby = await Hobby.create({
           title,
           description,
+          categories : categoryId
         });
         await Category.findOneAndUpdate(
           { _id: context.user._id },
@@ -102,7 +104,7 @@ const resolvers = {
           { _id: context.user._id },
           { $addToSet: { hobbies: hobby._id } }
         );
-
+        console.log(hobby)
         return hobby;
       }
       throw new AuthenticationError("You need to be logged in!");
