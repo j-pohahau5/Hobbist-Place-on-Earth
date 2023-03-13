@@ -63,15 +63,15 @@ const typeDefs = gql`
     addComment(hobbyId: ID!, content: String!): Comment
     addHobbyLike(_id: String!, likes: Int!): Hobby
     addCommentLike(_id: String!, likes: Int!): Comment
-    addHobbyDisLike(_id: String!, disLikes: Int!): Hobby
-    addCommentDisLike(_id: String!, disLikes: Int!): Comment
+    addHobbyDislike(_id: String!, dislikes: Int!): Hobby
+    addCommentDislike(_id: String!, dislikes: Int!): Comment
     removeCategory(categoryId: ID!): Category
     removeHobby(hobbyId: ID!): Hobby
     removeComment(hobbyId: ID!, commentId: ID!): Comment
     removeHobbyLike(_id: String!, likes: Int!): Hobby
     removeCommentLike(_id: String!, likes: Int!): Comment
-    removeHobbyDisLike(_id: String!, disLikes: Int!): Hobby
-    removeCommentDisLike(_id: String!, disLikes: Int!): Comment
+    removeHobbyDislike(_id: String!, dislikes: Int!): Hobby
+    removeCommentDislike(_id: String!, dislikes: Int!): Comment
   }
 `;
 

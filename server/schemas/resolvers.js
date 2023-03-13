@@ -158,22 +158,22 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in!");
     },
-    addHobbyDisLike: async (parent, { _id, disLikes }) => {
+    addHobbyDislike: async (parent, { _id, dislikes }) => {
       if (context.user) {
         const hobby = await Hobby.findOneAndUpdate(
           { _id },
-          { $inc: { [disLikes]: 1 } },
+          { $inc: { [dislikes]: 1 } },
           { new: true }
         );
         return hobby;
       }
       throw new AuthenticationError("You need to be logged in!");
     },
-    addCommentDisLike: async (parent, { _id, disLikes }) => {
+    addCommentDislike: async (parent, { _id, dislikes }) => {
       if (context.user) {
         const comment = await Comment.findOneAndUpdate(
           { _id },
-          { $inc: { [disLikes]: 1 } },
+          { $inc: { [dislikes]: 1 } },
           { new: true }
         );
         return comment;
@@ -257,22 +257,22 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in!");
     },
-    removeHobbyDisLike: async (parent, { _id, disLikes }) => {
+    removeHobbyDislike: async (parent, { _id, dislikes }) => {
       if (context.user) {
         const hobby = await Hobby.findOneAndUpdate(
           { _id },
-          { $inc: { [disLikes]: -1 } },
+          { $inc: { [dislikes]: -1 } },
           { new: true }
         );
         return hobby;
       }
       throw new AuthenticationError("You need to be logged in!");
     },
-    removeCommentDisLike: async (parent, { _id, disLikes }) => {
+    removeCommentDislike: async (parent, { _id, dislikes }) => {
       if (context.user) {
         const comment = await Comment.findOneAndUpdate(
           { _id },
-          { $inc: { [disLikes]: -1 } },
+          { $inc: { [dislikes]: -1 } },
           { new: true }
         );
         return comment;
