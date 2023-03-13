@@ -58,7 +58,7 @@ const typeDefs = gql`
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    logoutUser: logoutMessage
+    
     addCategory(title: String!, description: String!): Category
     addHobby(categoryId: ID!, title: String!, description: String!): Hobby
     addComment(hobbyId: ID!, content: String!): Comment
@@ -66,7 +66,7 @@ const typeDefs = gql`
     addCommentLike(_id: String!, likes: Int!): Comment
     addHobbyDisLike(_id: String!, disLikes: Int!): Hobby
     addCommentDisLike(_id: String!, disLikes: Int!): Comment
-    createVote(_id: String!, techNum: Int!): Matchup
+
     removeCategory(categoryId: ID!): Category
     removeHobby(hobbyId: ID!): Hobby
     removeComment(hobbyId: ID!, commentId: ID!): Comment
@@ -76,7 +76,5 @@ const typeDefs = gql`
     removeCommentDisLike(_id: String!, disLikes: Int!): Comment
   }
 `;
-// type logoutMessage {
-  //   message: String!
-  // }
+
 module.exports = typeDefs;
