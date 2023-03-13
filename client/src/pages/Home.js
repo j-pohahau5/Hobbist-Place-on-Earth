@@ -3,6 +3,7 @@ import { useQuery } from '@apollo/client';
 
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import HobbyForm from '../components/HobbyForm';
 
 // import { QUERY_CATEGORY } from '../utils/queries';
 
@@ -17,7 +18,7 @@ const Home = () => {
           className="col-12 col-md-10 mb-3 p-3"
           style={{ border: '1px dotted #1a1a1a' }}
         >
-
+          <HobbyForm />
         </div>
         <div>testing</div>
         <div className="col-12 col-md-8 mb-3">

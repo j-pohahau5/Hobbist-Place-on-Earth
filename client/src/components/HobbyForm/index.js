@@ -45,7 +45,7 @@ const HobbyForm = () => {
     try {
       const { data } = await addHobby({
         variables: {
-          categoryId: category,
+          // categories: category,
           title,
           description,
         },
@@ -88,27 +88,26 @@ const HobbyForm = () => {
             <label>
               Title:
               <input
-              type="text" 
               value={title} 
-              onChnage={(e) => setTitle(e.target.value)}
+              onChange={handleChange}
               />
             </label>
             <label>
               Description:
-              <textarea 
+              <input
+                name='description'
                 value={description} 
-                onChage={handleChange}
+                onChange={handleChange}
               />
             </label>
-            <label>
+            {/* <label>
               Category:
-              <input 
-                type="text" 
+              <input
                 value={category} 
                 onChange={(e) => setCategory(e.target.value)}
               />
-            </label>
-            <button type="submit" disabled={!title || !description || !category}>
+            </label> */}
+            <button type="submit" disabled={!title || !description}>
               {loading ? 'Creating...' : 'Create Hobby'}
             </button>
             {error && (
@@ -120,7 +119,7 @@ const HobbyForm = () => {
         </>
       ) : (
         <p>
-          You need to be logged in to share your thoughts. Please{' '}
+          You need to be logged in to add a Hobby. Please{' '}
           <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
         </p>
       )}
