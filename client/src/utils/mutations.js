@@ -40,16 +40,15 @@ export const ADD_CATEGORY = gql`
       title
       description
 
-
     }
-    
   }
 `;
 
 export const ADD_HOBBY = gql`
-mutation addHobby ( $categoryId: ID!, $title: String!, $description: String!){
-  addHobby ( categoryId: $categoryId, title: $title, description: $description) {
-    _id
+
+mutation addHobby ( $title: String!, $description: String!){
+  addHobby ( title: $title, description: $description) {
+
     title
     description
     categories {
@@ -113,4 +112,3 @@ mutation addCommentDislike ($_id: String!, $dislikes: Int!){
   
 }
 `;
-
