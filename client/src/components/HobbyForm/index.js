@@ -38,7 +38,7 @@ const HobbyForm = ({ category }) => {
       setSelectedCategory(option);
       }
     }  
-  }, [category, selectedCategory]);
+  }, [category, categoriesOptions, selectedCategory]);
 
   const [addHobby, { loading: Loading, error: mutationError }] = useMutation(ADD_HOBBY, {
     update(cache, { data: { addHobby } }) {
@@ -74,7 +74,7 @@ const HobbyForm = ({ category }) => {
         variables: {
           title,
           description,
-          categoryId: selectedCategory.value,
+          categories: selectedCategory.value,
         },
       });
 
@@ -138,7 +138,7 @@ const HobbyForm = ({ category }) => {
               />
             </label>
             <button type="submit" disabled={!title || !description}>
-              {loading ? 'Creating...' : 'Create Hobby'}
+              {Loading ? 'Creating...' : 'Create Hobby'}
             </button>
             {mutationError && (
               <div className='col-12 my-3 bg-danger text-white p-3'>

@@ -14,31 +14,31 @@ const resolvers = {
     },
     categories: async (parent, { username }) => {
       const params = username ? { username } : {};
-      return await Category.find(params).sort({ createdAt: -1 });
+      return await Category.find(params).sort({ createdAt: -1 }).populate("hobbies");
     },
     category: async (parent, { categoryId }) => {
-      return Category.findOne({ _id: categoryId });
+      return Category.findOne({ _id: categoryId }).populate("hobbies");
     },
-      //   .populate("hobbies")
+      //   
     
     hobbies: async (parent, { username }) => {
       const params = username ? { username } : {};
-      return Hobby.find(params).sort({ createdAt: -1 });
-      // .populate("categoryID")
+      return Hobby.find(params).sort({ createdAt: -1 }).populate("categories");
+      // 
       // .populate("commentID")
       // .populate("userID");
     },
     hobby: async (parent, { hobbyId }) => {
-      return Hobby.findOne({ _id: hobbyId });
-      // .populate("categoryID")
+      return Hobby.findOne({ _id: hobbyId }).populate("categories");
+      // 
       // .populate("commentID")
       // .populate("userID");
       // .populate("comments")
     },
     me: async (parent, args, context) => {
       if (context.user) {
-        return User.findOne({ _id: context.user._id });
-        // .populate("hobbies")
+        return User.findOne({ _id: context.user._id }).populate("hobbies");
+        // 
       }
       throw new AuthenticationError("You need to be logged in!");
     },
@@ -90,26 +90,26 @@ const resolvers = {
 
       throw new AuthenticationError("You need to be logged in!");
     },
-    addHobby: async (parent, { title, description, categoryId }, context) => {
-      console.log(context.user._id)
-      if (context.user) {
+    addHobby: async (parent, { title, description, categories }, context) => {
+      console.log(context.user)
+      // if (context.user) {
         const hobby = await Hobby.create({
           title,
           description,
-          categories : categoryId
+          categories
         });
         await Category.findOneAndUpdate(
-          { _id: context.user._id },
-          { $addToSet: { hobbies: hobby._id } }
+          { categories },
+          { $addToSet: { hobbies: hobby.id } }
         );
-        await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { $addToSet: { hobbies: hobby._id } }
-        );
+        // await User.findOneAndUpdate(
+        //   {  context.user },
+        //   { $addToSet: { hobbies: hobby.id } }
+        // );
         console.log(hobby)
         return hobby;
-      }
-      throw new AuthenticationError("You need to be logged in!");
+      // }
+      // throw new AuthenticationError("You need to be logged in!");
     },
     addComment: async (parent, { hobbyId, content }, context) => {
       if (context.user) {
