@@ -49,7 +49,8 @@ const SingleCategory = () => {
           style={{
             fontSize: '1.5rem',
             fontStyle: 'italic',
-            border: '2px dotted #1a1a1a',
+            // border: '2px dotted #1a1a1a',
+            // removed dashed border within container
             lineHeight: '1.5',
           }}
         >

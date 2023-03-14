@@ -940,10 +940,13 @@ a:hover {
 .bg-light {
   background-color: #d9e9e8 !important;
   color:#0D3B66;
+  border-radius: 0px 0px 15px 15px;
 }
 
 .bg-dark {
-  background-color: #1a1a1a !important;
+  background-color: #0D3B66 !important;
+  border-radius: 15px 15px 0px 0px;
+  color: #d9e9e8;
 }
 
 .bg-white {
