@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useMutation, useQuery } from '@apollo/client';
 import Select from 'react-select';
 import { ADD_HOBBY } from '../../utils/mutations';
-import { QUERY_CATEGORIES, QUERY_CATEGORY } from '../../utils/queries';
+import { QUERY_CATEGORIES, QUERY_SINGLE_CATEGORY } from '../../utils/queries';
 
 import Auth from '../../utils/auth';
 
@@ -21,7 +21,7 @@ const HobbyForm = () => {
     update(cache, { data: { addHobby } }) {
       try{
         
-        const { categories } = cache.readQuery({ query: QUERY_CATEGORY });
+        const { categories } = cache.readQuery({ query: QUERY_SINGLE_CATEGORY });
         const updatedCategories = categories.map((category) => {
           if (category._id === addHobby.categories[0]._id){
             return {

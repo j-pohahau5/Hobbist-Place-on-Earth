@@ -36,24 +36,19 @@ export const ADD_USER = gql`
 export const ADD_CATEGORY = gql`
   mutation addCategory ( $title: String!, $description: String!){
     addCategory ( title: $title, description: $description) {
-      _id
+
       title
       description
-      hobby {
-        _id
-        title
-      }
-      user {
-        _id
-      }
+
     }
-    
   }
 `;
 
 export const ADD_HOBBY = gql`
-mutation addHobby ( $categoryId: ID!, $title: String!, $description: String!){
-  addHobby ( categoryId: $categoryId, title: $title, description: $description) {
+
+mutation addHobby ( $title: String!, $description: String!){
+  addHobby ( title: $title, description: $description) {
+
     title
     description
     categories {
@@ -117,4 +112,3 @@ mutation addCommentDislike ($_id: String!, $dislikes: Int!){
   
 }
 `;
-
