@@ -30,7 +30,7 @@ const CategoryForm = () => {
   
     if (name === 'description') {
       setDescription(value);
-    } else {
+    } if(name === 'title') {
       setTitle(value);
     }
 
