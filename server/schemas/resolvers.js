@@ -18,8 +18,9 @@ const resolvers = {
     },
     category: async (parent, { categoryId }) => {
       return Category.findOne({ _id: categoryId });
-      //   .populate("hobbies")
     },
+      //   .populate("hobbies")
+    
     hobbies: async (parent, { username }) => {
       const params = username ? { username } : {};
       return Hobby.find(params).sort({ createdAt: -1 });
