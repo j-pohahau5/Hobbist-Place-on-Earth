@@ -11,6 +11,10 @@
  */
 html {
   line-height: 1.15;
+  background-image: url("./images/top.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
   /* 1 */
   -webkit-text-size-adjust: 100%;
   /* 2 */
@@ -926,7 +930,7 @@ a:hover {
 
 /* BACKGROUND UTILS */
 .bg-primary {
-  background-color: #8938ec !important;
+  /* background-color: #8938ec !important; */
 }
 
 .bg-info {
@@ -1340,11 +1344,13 @@ label form [type='radio'] {
 .col-12 {
   flex: 0 0 100%;
   max-width: 100%;
-  border-radius: 15px;
-  border-color: #4cc9f0;
-  padding: 20px;
-  background-color: #4cc9f0;
-  color: #0D3B66;
+  border-radius: 50px;
+  border-color: #bb8cf6;
+  padding: 5px;
+  background-color: #8938ec;
+  background-color: ;
+  color: #070a0b;
+  text-align: center;
 }
 
 /* col-sm */
