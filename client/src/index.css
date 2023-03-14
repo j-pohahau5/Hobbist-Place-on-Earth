@@ -1,3 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
@@ -936,6 +939,7 @@ a:hover {
 
 .bg-light {
   background-color: #d9e9e8 !important;
+  color:#0D3B66;
 }
 
 .bg-dark {
@@ -1051,7 +1055,7 @@ a:hover {
 }
 
 .btn.btn-dark {
-  background-color: #1a1a1a;
+  background-color: #8938ec;
   color: #d9e9e8;
 }
 

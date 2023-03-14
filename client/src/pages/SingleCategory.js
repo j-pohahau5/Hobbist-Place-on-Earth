@@ -11,8 +11,9 @@ const SingleCategory = () => {
   // Use `useParams()` to retrieve value of the route parameter `:profileId`
   // When the user clicks on the link inside our app or enters the page's URL in the browser, we want only the associated tech friend's information to display on the page.
   // To do this, we first grab the needed profile id from the URL's parameter using the useParams() Hook:
-//   const { hobbies } = useQuery(QUERY_ALL_HOBBIES, {
-//   }); console.log(hobbies);
+  //  
+  // const { hobbies } = useQuery(QUERY_ALL_HOBBIES);
+  // console.log(hobbies);
   const singleCategory  = useParams();
 
   // Then, we use that profile id to query our data and return the associated tech friend's information:
@@ -52,10 +53,10 @@ const SingleCategory = () => {
         </blockquote>
       </div>
           <div className='my-5'>
-            <HobbyList hobbies={hobbies} />
+            <HobbyForm category={category.title} categoryId={category._id} />
+            <HobbyList hobbies={singleCategory.hobbies} />
           </div>
           <div>
-            <HobbyForm category={category.title} categoryId={category._id} />
           </div>
     </div>
   );
