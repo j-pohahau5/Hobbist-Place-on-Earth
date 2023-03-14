@@ -74,11 +74,12 @@ const resolvers = {
     },
 
     addCategory: async (parent, { title, description }, context) => {
-      if (context.user) {
+      if (context.user._id) {
+        console.log(context.user);
         const category = await Category.create({
           title,
           description,
-        });
+        })
         await User.findOneAndUpdate(
           { _id: context.user._id },
           { $addToSet: { categories: category._id } }
