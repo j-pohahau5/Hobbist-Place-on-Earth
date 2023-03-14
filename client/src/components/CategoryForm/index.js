@@ -72,6 +72,7 @@ const CategoryForm = () => {
             <label>
               Title:
               <input
+              name='title'
               value={title} 
               onChange={handleChange}
               />
