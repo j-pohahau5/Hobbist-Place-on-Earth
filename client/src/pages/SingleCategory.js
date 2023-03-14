@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 // Import the `useParams()` hook
 import { useParams } from 'react-router-dom';
@@ -59,6 +60,19 @@ const SingleCategory = () => {
           <div className='my-5'>
             <HobbyForm category={category.title} categoryId={category._id} />
             {/* <HobbyList hobbies={singleCategory.hobbies} /> */}
+            <h2>Hobbies:</h2>
+            {hobbies.map((hobby) => (
+              <div key={hobby._id}>
+              <h3>{hobby.title}</h3>
+              <p>{hobby.description}</p>
+              <Link
+              className="btn btn-primary btn-block btn-squared"
+              to={`/hobbies/${hobby._id}`}
+              >
+              Join the discussion on this hobby.
+            </Link>
+            </div>
+        ))}
           </div>
           <div>
           </div>

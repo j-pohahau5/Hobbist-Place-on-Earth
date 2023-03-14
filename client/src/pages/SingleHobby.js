@@ -4,8 +4,8 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
-import CommentList from '../components/CommentList';
-import CommentForm from '../components/CommentForm';
+// import CommentList from '../components/CommentList';
+// import CommentForm from '../components/CommentForm';
 
 import { QUERY_SINGLE_HOBBY } from '../utils/queries';
 
@@ -45,11 +45,11 @@ const SingleHobby = () => {
         </blockquote>
       </div>
       <div className='my-5'>
-          <CommentList comments={hobby.comments} />
+          {/* <CommentList comments={hobby.comments} /> */}
       </div>
       <div className="m-3 p-4 bg-light" style={{ border: '1px solid #ccc' }}>
         <h4 className="mb-3">Add a comment</h4>
-        <CommentForm hobbyId={hobby._id} />
+        {/* <CommentForm hobbyId={hobby._id} /> */}
       </div>
     </div>
   );
