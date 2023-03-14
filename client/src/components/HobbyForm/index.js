@@ -21,11 +21,24 @@ const HobbyForm = ({ category }) => {
     value: category._id,
     label: category.title,
   }))
+  
+  const [categoriesOptions, setCategoriesOptions] = useState([]);
 
   useEffect(() => {
-    const option = options.find((option) => option.label === category);
-    setSelectedCategory(option);
-  }, [category, options]);
+    setCategoriesOptions(categories.map((category) =>({
+      value: category._id,
+      label: category.title,
+    })))
+  }, [categories]);
+
+  useEffect(() => {
+    if (category){
+      const option = categoriesOptions.find((option) => option.label === category);
+      if (option !== selectedCategory) {
+      setSelectedCategory(option);
+      }
+    }  
+  }, [category, selectedCategory]);
 
   const [addHobby, { loading: Loading, error: mutationError }] = useMutation(ADD_HOBBY, {
     update(cache, { data: { addHobby } }) {
