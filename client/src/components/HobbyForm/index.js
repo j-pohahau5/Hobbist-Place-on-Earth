@@ -7,7 +7,7 @@ import { QUERY_CATEGORIES, QUERY_SINGLE_CATEGORY } from '../../utils/queries';
 
 import Auth from '../../utils/auth';
 
-const HobbyForm = () => {
+const HobbyForm = ({ category }) => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -16,6 +16,16 @@ const HobbyForm = () => {
   const { loading, data } = useQuery(QUERY_CATEGORIES);
 
   const categories = data?.categories || [];
+  
+  const options = categories.map((category) => ({
+    value: category._id,
+    label: category.title,
+  }))
+
+  useEffect(() => {
+    const option = options.find((option) => option.label === category);
+    setSelectedCategory(option);
+  }, [category, options]);
 
   const [addHobby, { loading: Loading, error: mutationError }] = useMutation(ADD_HOBBY, {
     update(cache, { data: { addHobby } }) {
@@ -75,10 +85,7 @@ const HobbyForm = () => {
     setCharacterCount(title.length + description.length);
   };
 
-  const options = categories.map((category) => ({
-    value: category._id,
-    label: category.title,
-  }))
+
 
   return (
     <div>
