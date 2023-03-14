@@ -21,11 +21,15 @@ const SingleCategory = () => {
     // pass URL parameter
     variables: { categoryId: singleCategory.id },
   });
+//   console.log(data.category.hobbies[0])
 
   const category = data?.category || {};
 
 //   console.log(singleCategory);
-//   console.log(category);
+//   console.log(category.hobbies);asdggwrbv
+
+ const hobbies = category.hobbies;
+ console.log(hobbies);
 
   if (loading) {
     return <div>Loading...</div>;
@@ -54,7 +58,7 @@ const SingleCategory = () => {
       </div>
           <div className='my-5'>
             <HobbyForm category={category.title} categoryId={category._id} />
-            <HobbyList hobbies={singleCategory.hobbies} />
+            {/* <HobbyList hobbies={singleCategory.hobbies} /> */}
           </div>
           <div>
           </div>
