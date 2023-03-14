@@ -118,7 +118,7 @@ const resolvers = {
       // throw new AuthenticationError("You need to be logged in!");
     },
     addComment: async (parent, { hobbies, content }, context) => {
-      // if (context.user) {
+      if (context.user) {
         const comment = await Comment.create({
           content,
           hobbies
@@ -135,13 +135,13 @@ const resolvers = {
             runValidators: true,
           }
         );
-        // await User.findOneAndUpdate(
-        //   { _id: context.user._id },
-        //   { $addToSet: { comments: comment._id } }
-        // );
+        await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $addToSet: { comments: comment._id } }
+        );
         return comment;
-      // }
-      // throw new AuthenticationError("You need to be logged in!");
+      }
+      throw new AuthenticationError("You need to be logged in!");
     },
     addHobbyLike: async (parent, { _id, likes }) => {
       if (context.user) {
