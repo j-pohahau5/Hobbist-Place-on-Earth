@@ -3,24 +3,25 @@ import React from 'react';
 // Import the `useParams()` hook
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-
-// import CommentList from '../components/CommentList';
-// import CommentForm from '../components/CommentForm';
-// import HobbyList from '../components/HobbyList';
-// import HobbyForm from '../components/HobbyForm';
-
-import { QUERY_CATEGORY } from '../utils/queries';
+import HobbyList from '../components/HobbyList';
+import { QUERY_SINGLE_CATEGORY } from '../utils/queries';
 
 const SingleCategory = () => {
-  const { categoryId } = useParams();
+  // Use `useParams()` to retrieve value of the route parameter `:profileId`
+  // When the user clicks on the link inside our app or enters the page's URL in the browser, we want only the associated tech friend's information to display on the page.
+  // 🔑 To do this, we first grab the needed profile id from the URL's parameter using the useParams() Hook:
+  const singleCategory  = useParams();
 
-  const { loading, data } = useQuery(QUERY_CATEGORY, {
-    variables: { categoryId: categoryId },
+  // 🔑 Then, we use that profile id to query our data and return the associated tech friend's information:
+  const { loading, data } = useQuery(QUERY_SINGLE_CATEGORY, {
+    // pass URL parameter
+    variables: { categoryId: singleCategory.id },
   });
 
   const category = data?.category || {};
 
-  console.log(data);
+  console.log(singleCategory);
+  console.log(category);
 
   if (loading) {
     return <div>Loading...</div>;
@@ -31,8 +32,13 @@ const SingleCategory = () => {
         {category.title} <br />
         <span style={{ fontSize: '1rem' }}>
           One of my category is {category.title}
+
         </span>
       </h3>
+      <HobbyList 
+      
+      
+      />
       <div className="bg-light py-4">
         <blockquote
           className="p-4"

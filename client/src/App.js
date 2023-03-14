@@ -64,7 +64,7 @@ function App() {
                         
                             />
                             <Route
-                                path="/categories/:_id"
+                                path="/categories/:id"
                                 element={<SingleCategory />}
                         
                             />

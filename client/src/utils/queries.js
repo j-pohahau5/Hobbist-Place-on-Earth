@@ -21,17 +21,18 @@ export const QUERY_USER = gql`
   }
 `;
 
-export const QUERY_CATEGORY = gql`
-  query category($category: ID!) {
+export const QUERY_SINGLE_CATEGORY = gql`
+  query category($categoryId: ID! ) {
     category(categoryId: $categoryId) {
       _id
       title
       description
-      hobbies {
+      hobbies{
         _id
         title
         description
       }
+
     }  
   }
 `;

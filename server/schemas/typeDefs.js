@@ -49,7 +49,7 @@ const typeDefs = gql`
   type Query {
     users: [User]
     user(username: String!): User
-    categories: [Category]
+    categories: [Category]!
     category(categoryId: ID!): Category
     hobbies(categories: ID!): [Hobby]
     hobby(hobbyId: ID!): Hobby
