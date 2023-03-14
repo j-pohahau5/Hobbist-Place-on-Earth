@@ -1,4 +1,5 @@
 import React from 'react';
+
 import {
     ApolloClient,
     InMemoryCache,
@@ -14,7 +15,8 @@ import Login from './pages/Login';
 // import SingleHobby from './pages/SingleHobby';
 import Header from './components/Header';
 import Footer from './components/Footer';
-// import Hobby from './pages/Hobbies';
+import SingleCategory from './pages/SingleCategory';
+
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -59,6 +61,11 @@ function App() {
                             <Route
                                 path="/signup"
                                 element={<Signup />}
+                        
+                            />
+                            <Route
+                                path="/categories/:id"
+                                element={<SingleCategory />}
                         
                             />
                             {/* <Route

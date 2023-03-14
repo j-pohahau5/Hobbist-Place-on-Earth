@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 import { useMutation, useQuery } from '@apollo/client';
 import Select from 'react-select';
 import { ADD_HOBBY } from '../../utils/mutations';
-import { QUERY_CATEGORIES, QUERY_CATEGORY } from '../../utils/queries';
+import { QUERY_CATEGORIES, QUERY_SINGLE_CATEGORY } from '../../utils/queries';
 
 import Auth from '../../utils/auth';
 
-const HobbyForm = () => {
+const HobbyForm = ({ category }) => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -16,12 +16,35 @@ const HobbyForm = () => {
   const { loading, data } = useQuery(QUERY_CATEGORIES);
 
   const categories = data?.categories || [];
+  
+  const options = categories.map((category) => ({
+    value: category._id,
+    label: category.title,
+  }))
+  
+  const [categoriesOptions, setCategoriesOptions] = useState([]);
+
+  useEffect(() => {
+    setCategoriesOptions(categories.map((category) =>({
+      value: category._id,
+      label: category.title,
+    })))
+  }, [categories]);
+
+  useEffect(() => {
+    if (category){
+      const option = categoriesOptions.find((option) => option.label === category);
+      if (option !== selectedCategory) {
+      setSelectedCategory(option);
+      }
+    }  
+  }, [category, selectedCategory]);
 
   const [addHobby, { loading: Loading, error: mutationError }] = useMutation(ADD_HOBBY, {
     update(cache, { data: { addHobby } }) {
       try{
         
-        const { categories } = cache.readQuery({ query: QUERY_CATEGORY });
+        const { categories } = cache.readQuery({ query: QUERY_SINGLE_CATEGORY });
         const updatedCategories = categories.map((category) => {
           if (category._id === addHobby.categories[0]._id){
             return {
@@ -75,10 +98,7 @@ const HobbyForm = () => {
     setCharacterCount(title.length + description.length);
   };
 
-  const options = categories.map((category) => ({
-    value: category._id,
-    label: category.title,
-  }))
+
 
   return (
     <div>
