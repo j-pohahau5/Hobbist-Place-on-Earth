@@ -6,38 +6,37 @@ import { ADD_COMMENT } from '../../utils/mutations';
 
 import Auth from '../../utils/auth';
 
-const CommentForm = ({ hobbyId }) => {
-  const [content, setContent] = useState('');
-  const [characterCount, setCharacterCount] = useState(0);
-
-  const [addComment, { error }] = useMutation(ADD_COMMENT);
-
-  const handleFormSubmit = async (event) => {
-    event.preventDefault();
-
-    try {
-      const { data } = await addComment({
-        variables: {
-          hobbyId,
-          content,
-          commentAuthor: Auth.getProfile().data.username,
-        },
-      });
-
-      setContent('');
-    } catch (err) {
-      console.error(err);
-    }
-  };
-
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-
-    if (name === 'content' && value.length <= 280) {
-      setContent(value);
-      setCharacterCount(value.length);
-    }
-  };
+const CommentForm = ({ hobbies }) => {
+    const [content, setContent] = useState('');
+    const [characterCount, setCharacterCount] = useState(0);
+  
+    const [addComment, { error }] = useMutation(ADD_COMMENT);
+  
+    const handleFormSubmit = async (event) => {
+      event.preventDefault();
+  
+      try {
+        const { data } = await addComment({
+          variables: {
+            hobbies: hobbies.data.thisHobby,
+            content,
+            // commentAuthor: Auth.getProfile().data.username,
+          },
+        });
+  
+        setContent('');
+      } catch (err) {
+        console.error(err);
+      }
+    };
+    const handleChange = (event) => {
+      const { name, value } = event.target;
+  
+      if (name === 'content' && value.length <= 280) {
+        setContent(value);
+        setCharacterCount(value.length);
+      }
+    };
 
   return (
     <div>

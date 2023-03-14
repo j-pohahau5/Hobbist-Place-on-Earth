@@ -87,6 +87,9 @@ export const QUERY_SINGLE_HOBBY = gql`
       categories {
         title
       }
+      comments {
+        content
+      }
     }
   }
 `;

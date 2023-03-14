@@ -4,8 +4,9 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
+
 // import CommentList from '../components/CommentList';
-// import CommentForm from '../components/CommentForm';
+import CommentForm from '../components/CommentForm';
 
 import { QUERY_SINGLE_HOBBY } from '../utils/queries';
 
@@ -19,7 +20,9 @@ const SingleHobby = () => {
   });
 
   const hobby = data?.hobby || {};
-
+  console.log(hobby._id);
+  const thisHobby = hobby._id;
+  
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -28,10 +31,11 @@ const SingleHobby = () => {
       <h3 className="card-header bg-dark text-light p-2 m-0">
         {hobby.title} <br />
       </h3>
-      <div className="bg-secondary py-4">
-        <p className="p-4 text-light" style={{ fontSize: '1.5rem', lineHeight: '1.5' }}>
+      <p className="p-4 text-light" style={{ fontSize: '1.5rem', lineHeight: '1.5' }}>
           {hobby.description}
         </p>
+      <div className="bg-secondary py-4">
+        
         <blockquote
           className="p-4"
           style={{
@@ -49,8 +53,12 @@ const SingleHobby = () => {
       </div>
       <div className="m-3 p-4 bg-light" style={{ border: '1px solid #ccc' }}>
         <h4 className="mb-3">Add a comment</h4>
-        {/* <CommentForm hobbyId={hobby._id} /> */}
+        <div>
+      <h4>What are your thoughts on this hobby?</h4>
+    </div>
+        <CommentForm hobbyId={thisHobby} />
       </div>
+      
     </div>
   );
 };
