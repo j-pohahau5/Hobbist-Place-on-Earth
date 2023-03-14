@@ -22,8 +22,8 @@ export const QUERY_USER = gql`
 `;
 
 export const QUERY_CATEGORY = gql`
-  query category($category: ID) {
-    category(categoryId: $category) {
+  query category($category: ID!) {
+    category(categoryId: $categoryId) {
       _id
       title
       description
@@ -31,7 +31,6 @@ export const QUERY_CATEGORY = gql`
         _id
         title
         description
-        hobbies
       }
     }  
   }

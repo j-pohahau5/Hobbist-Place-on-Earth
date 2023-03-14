@@ -1,6 +1,6 @@
 import React from 'react';
 
-// Import the `useParams()` hook from React Router
+// Import the `useParams()` hook
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
@@ -19,6 +19,8 @@ const SingleCategory = () => {
   });
 
   const category = data?.category || {};
+
+  console.log(data);
 
   if (loading) {
     return <div>Loading...</div>;
