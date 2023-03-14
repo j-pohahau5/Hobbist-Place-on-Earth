@@ -65,7 +65,7 @@ mutation addHobby ($categories: ID!, $title: String!, $description: String!){
 
 export const ADD_COMMENT = gql`
 mutation addComment ( $hobbies: ID!, $content: String! ){
-  addComment ( hobbies: hobbies, content: $content ) {
+  addComment ( hobbies: $hobbies, content: $content ) {
     content
     hobbies {
       _id

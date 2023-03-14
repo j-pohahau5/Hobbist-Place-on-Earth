@@ -99,14 +99,10 @@ export const QUERY_ME = gql`
     me {
       _id
       username
-      categories {
+      hobbies{
         _id
         title
-        hobby {
-          _id
-          title
-          description
-        }
+        description
       }
     }
   }

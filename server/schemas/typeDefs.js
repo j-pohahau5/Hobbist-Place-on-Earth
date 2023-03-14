@@ -6,7 +6,7 @@ const typeDefs = gql`
     username: String
     email: String
     password: String
-    hobbyId: [Hobby]!
+    hobbies: [Hobby]!
     comments: [Comment]!
     categories: [Category]!
   }
