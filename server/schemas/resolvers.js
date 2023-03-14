@@ -6,8 +6,8 @@ const { signToken } = require("../utils/auth");
 const resolvers = {
   Query: {
     users: async () => {
-      return User.find();
-      //   .populate("hobbies")
+      return User.find().populate("hobbies");
+      //   
     },
     user: async (parent, { username }) => {
       return User.findOne({ username }).populate("hobbies");
@@ -48,12 +48,12 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in!");
     },
-    me: async (parent, args, context) => {
-      if (context.user) {
-        return User.findOne({ _id: context.user._id }).populate("hobbies");
-      }
-      throw new AuthenticationError("You need to be logged in!");
-    },
+    // me: async (parent, args, context) => {
+    //   if (context.user) {
+    //     return User.findOne({ _id: context.user._id }).populate("hobbies");
+    //   }
+    //   throw new AuthenticationError("You need to be logged in!");
+    // },
   },
   Mutation: {
     addUser: async (parent, { username, email, password }) => {
@@ -98,7 +98,7 @@ const resolvers = {
     },
     addHobby: async (parent, { title, description, categories }, context) => {
       console.log(context.user)
-      // if (context.user) {
+      if (context.user) {
         const hobby = await Hobby.create({
           title,
           description,
@@ -108,14 +108,14 @@ const resolvers = {
           { categories },
           { $addToSet: { hobbies: hobby.id } }
         );
-        // await User.findOneAndUpdate(
-        //   {  context.user },
-        //   { $addToSet: { hobbies: hobby.id } }
-        // );
+        await User.findOneAndUpdate(
+          { _id: context.user },
+          { $addToSet: { hobbies: hobby.id } }
+        );
         console.log(hobby)
         return hobby;
-      // }
-      // throw new AuthenticationError("You need to be logged in!");
+      }
+      throw new AuthenticationError("You need to be logged in!");
     },
     addComment: async (parent, { hobbies, content }, context) => {
       if (context.user) {

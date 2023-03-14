@@ -16,6 +16,7 @@ import SingleHobby from './pages/SingleHobby';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import SingleCategory from './pages/SingleCategory';
+import Profile from './pages/Profile';
 
 
 // Construct our main GraphQL API endpoint
@@ -73,11 +74,11 @@ function App() {
                                 element={<SingleHobby />}
 
                             />
-                            {/* <Route
-                                path="/hobbies"
-                                element={<Hobby />}
+                            <Route
+                                path="/me"
+                                element={<Profile />}
 
-                            /> */}
+                            />
                         </Routes>
                     </div>
                     <Footer />
