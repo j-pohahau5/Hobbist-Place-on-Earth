@@ -6,7 +6,7 @@ import { ADD_COMMENT } from '../../utils/mutations';
 
 import Auth from '../../utils/auth';
 
-const CommentForm = ({ hobbies }) => {
+const CommentForm = ({ thisHobby }) => {
     const [content, setContent] = useState('');
     const [characterCount, setCharacterCount] = useState(0);
   
@@ -18,13 +18,14 @@ const CommentForm = ({ hobbies }) => {
       try {
         const { data } = await addComment({
           variables: {
-            hobbies: hobbies.data.thisHobby,
+            hobbies: thisHobby,
             content,
             // commentAuthor: Auth.getProfile().data.username,
           },
         });
   
         setContent('');
+        window.location.reload();
       } catch (err) {
         console.error(err);
       }
