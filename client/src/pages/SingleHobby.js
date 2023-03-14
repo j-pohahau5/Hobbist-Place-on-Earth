@@ -20,9 +20,12 @@ const SingleHobby = () => {
   });
 
   const hobby = data?.hobby || {};
-  console.log(hobby._id);
+  console.log(hobbyId);
   const thisHobby = hobby._id;
-  
+  const comments = hobby.comments;
+  console.log(comments)
+  // const users = comments.users;
+  // const username = users.username;
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -46,6 +49,14 @@ const SingleHobby = () => {
           }}
         >
           {hobby.title} Hobby's Comments:
+          <div className='my-5'>
+              {comments.map((comment) => (
+                <div key={comment._id}>
+                {/* <p>{username}</p> */}
+                <p>{comment.content}</p>
+              </div>
+          ))}
+      </div>
         </blockquote>
       </div>
       <div className='my-5'>
@@ -54,8 +65,9 @@ const SingleHobby = () => {
       <div className="m-3 p-4 bg-light" style={{ border: '1px solid #ccc' }}>
         <h4 className="mb-3">Add a comment</h4>
         <div>
-      <h4>What are your thoughts on this hobby?</h4>
     </div>
+    
+            
         <CommentForm hobbyId={thisHobby} />
       </div>
       
