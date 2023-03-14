@@ -17,7 +17,6 @@ const categorySchema = new Schema({
     },
 
     hobbies: [
-
         {
             type: Schema.Types.ObjectId,
             ref: 'Hobby',
