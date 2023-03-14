@@ -12,7 +12,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
-// import SingleHobby from './pages/SingleHobby';
+import SingleHobby from './pages/SingleHobby';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import SingleCategory from './pages/SingleCategory';
@@ -68,12 +68,12 @@ function App() {
                                 element={<SingleCategory />}
                         
                             />
-                            {/* <Route
+                            <Route
                                 path="/hobbies/:hobbyId"
                                 element={<SingleHobby />}
 
                             />
-                            <Route
+                            {/* <Route
                                 path="/hobbies"
                                 element={<Hobby />}
 
