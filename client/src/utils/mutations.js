@@ -64,21 +64,21 @@ mutation addHobby ($categories: ID!, $title: String!, $description: String!){
 `;
 
 export const ADD_COMMENT = gql`
-mutation addComment ( $content: String! ){
-  addComment ( content: $content ) {
+mutation addComment ( $hobbies: ID!, $content: String! ){
+  addComment ( hobbies: hobbies, content: $content ) {
     content
     hobbies {
       _id
       title
     }
-    users {
-      _id
-    }
+    
   }
   
 }
 `;
-
+// users {
+//       _id
+//     }
 export const ADD_HOBBY_LIKE = gql`
 mutation addHobbyLike ($_id: String!, $likes: Int!){
   addHobbyLike ( likes: $likes ) {

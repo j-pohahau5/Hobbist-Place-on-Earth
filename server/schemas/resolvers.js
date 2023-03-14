@@ -20,18 +20,24 @@ const resolvers = {
       return Category.findOne({ _id: categoryId }).populate("hobbies");
     },
       //   
-    
+      // comments: async (parent, { hobbies }) => {
+      //   return Comment.findOne({ d }).populate("comments");
+      //   // 
+      //   // 
+      //   // .populate("userID");
+      //   // .populate("comments")
+      // },
     hobbies: async (parent, { username }) => {
       const params = username ? { username } : {};
-      return Hobby.find(params).sort({ createdAt: -1 }).populate("categories");
+      return Hobby.find(params).sort({ createdAt: -1 }).populate("categories").populate("comments");
       // 
       // .populate("commentID")
       // .populate("userID");
     },
     hobby: async (parent, { hobbyId }) => {
-      return Hobby.findOne({ _id: hobbyId }).populate("categories");
+      return Hobby.findOne({ _id: hobbyId }).populate("categories").populate("comments");
       // 
-      // .populate("commentID")
+      // 
       // .populate("userID");
       // .populate("comments")
     },
@@ -111,13 +117,14 @@ const resolvers = {
       // }
       // throw new AuthenticationError("You need to be logged in!");
     },
-    addComment: async (parent, { hobbyId, content }, context) => {
-      if (context.user) {
+    addComment: async (parent, { hobbies, content }, context) => {
+      // if (context.user) {
         const comment = await Comment.create({
           content,
+          hobbies
         });
         await Hobby.findOneAndUpdate(
-          { _id: hobbyId },
+          { _id: hobbies },
           {
             $addToSet: {
               comments: comment._id,
@@ -128,13 +135,13 @@ const resolvers = {
             runValidators: true,
           }
         );
-        await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { $addToSet: { comments: comment._id } }
-        );
+        // await User.findOneAndUpdate(
+        //   { _id: context.user._id },
+        //   { $addToSet: { comments: comment._id } }
+        // );
         return comment;
-      }
-      throw new AuthenticationError("You need to be logged in!");
+      // }
+      // throw new AuthenticationError("You need to be logged in!");
     },
     addHobbyLike: async (parent, { _id, likes }) => {
       if (context.user) {

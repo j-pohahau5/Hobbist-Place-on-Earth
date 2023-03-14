@@ -61,7 +61,7 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     addCategory(title: String!, description: String!): Category
     addHobby(categories: ID!, title: String!, description: String!): Hobby
-    addComment(hobbyId: ID!, content: String!): Comment
+    addComment(hobbies: ID!, content: String!): Comment
     addHobbyLike(_id: String!, likes: Int!): Hobby
     addCommentLike(_id: String!, likes: Int!): Comment
     addHobbyDislike(_id: String!, dislikes: Int!): Hobby
@@ -75,5 +75,5 @@ const typeDefs = gql`
     removeCommentDislike(_id: String!, dislikes: Int!): Comment
   }
 `;
-
+// comments(hobbies: ID!): Comment
 module.exports = typeDefs;
