@@ -15,8 +15,9 @@ const typeDefs = gql`
     _id: ID
     title: String
     description: String
+    users: [User]! 
     hobbies: [Hobby]!
-    users: [User]!
+
   }
 
   type Comment {
@@ -48,7 +49,7 @@ const typeDefs = gql`
   type Query {
     users: [User]
     user(username: String!): User
-    categories: [Category]
+    categories: [Category]!
     category(categoryId: ID!): Category
     hobbies(categories: ID!): [Hobby]
     hobby(hobbyId: ID!): Hobby

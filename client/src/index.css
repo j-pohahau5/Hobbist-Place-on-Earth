@@ -939,6 +939,7 @@ a:hover {
 
 .bg-light {
   background-color: #d9e9e8 !important;
+  color:#0D3B66;
 }
 
 .bg-dark {
@@ -1054,7 +1055,7 @@ a:hover {
 }
 
 .btn.btn-dark {
-  background-color: #1a1a1a;
+  background-color: #8938ec;
   color: #d9e9e8;
 }
 

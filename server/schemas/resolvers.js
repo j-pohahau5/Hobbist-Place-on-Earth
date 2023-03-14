@@ -18,8 +18,9 @@ const resolvers = {
     },
     category: async (parent, { categoryId }) => {
       return Category.findOne({ _id: categoryId });
-      //   .populate("hobbies")
     },
+      //   .populate("hobbies")
+    
     hobbies: async (parent, { username }) => {
       const params = username ? { username } : {};
       return Hobby.find(params).sort({ createdAt: -1 });
@@ -74,11 +75,12 @@ const resolvers = {
     },
 
     addCategory: async (parent, { title, description }, context) => {
-      if (context.user) {
+      if (context.user._id) {
+        console.log(context.user);
         const category = await Category.create({
           title,
           description,
-        });
+        })
         await User.findOneAndUpdate(
           { _id: context.user._id },
           { $addToSet: { categories: category._id } }
