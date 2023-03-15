@@ -33,7 +33,7 @@ const Home = () => {
         >
           <CategoryForm />
         </div>
-        <div className="col-12 col-md-8 mb-3">
+        <div className="col-13 col-md-8 mb-3">
           {loading ? (
             <div>Loading...</div>
           ) : (
