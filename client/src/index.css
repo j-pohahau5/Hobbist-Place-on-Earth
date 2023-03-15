@@ -682,6 +682,21 @@ a:hover {
   color: #0D3B66;
 }
 
+.my-6 {
+  margin-top: 1.625rem !important;
+  margin-bottom: 1.625rem !important;
+  background-color:  #4cc9f0;
+  border-radius: 15px;
+  padding: 20px;
+  color: #0D3B66;
+}
+
+.profile-hobby-cont{
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 15px 15px 0px 0px;
+}
+
 .my-auto {
   margin-top: auto !important;
   margin-bottom: auto !important;
@@ -706,6 +721,12 @@ a:hover {
 
 .p-4 {
   padding: 1.375rem !important;
+}
+
+.p-4-profile-cat {
+  padding: 1.375rem !important;
+  background-color: #ffffff;
+  border-radius: 15px;
 }
 
 .p-5 {
@@ -949,6 +970,12 @@ a:hover {
   background-color: #4cc9f0 !important;
   color:#0D3B66;
   /* border-radius: 0px 0px 15px 15px; */
+}
+
+.bg-light-profile-cat {
+  background-color: #4cc9f0 !important;
+  color:#0D3B66;
+  border-radius: 0px 0px 15px 15px;
 }
 
 .bg-dark {

@@ -44,9 +44,9 @@ const SingleCategory = () => {
 
         </span>
       </h3>
-      <div className="bg-light py-4">
+      <div className="bg-light-profile-cat py-4">
         <blockquote
-          className="p-4"
+          className="p-4-profile-cat"
           style={{
             fontSize: '1.5rem',
             fontStyle: 'italic',
@@ -58,20 +58,24 @@ const SingleCategory = () => {
           {category.description}
         </blockquote>
       </div>
-          <div className='my-5'>
+          <div className='my-6'>
             <HobbyForm category={category.title} categoryId={category._id} />
             {/* <HobbyList hobbies={singleCategory.hobbies} /> */}
+            <br></br>
+            <br></br>
             <h2>Hobbies:</h2>
+            <br></br>
             {hobbies.map((hobby) => (
               <div key={hobby._id}>
               <h3>{hobby.title}</h3>
-              <p>{hobby.description}</p>
+              <p className="profile-hobby-cont">{hobby.description}</p>
               <Link
               className="btn btn-primary btn-block btn-squared"
               to={`/hobbies/${hobby._id}`}
               >
               Join the discussion on this hobby.
             </Link>
+            <br></br>
             </div>
         ))}
           </div>

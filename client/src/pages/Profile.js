@@ -54,10 +54,11 @@ const Profile = () => {
           <h3> Hobbies:</h3>
           <div className='my-5'>
               {hobbies.map((hobby) => (
-                <div key={hobby._id}>
+                <div key={hobby._id} >
                 {/* <p>{username}</p> */}
                 <p>Title: {hobby.title}</p>
                 <p>Description: {hobby.description}</p>
+                
               </div>
           ))}
         
