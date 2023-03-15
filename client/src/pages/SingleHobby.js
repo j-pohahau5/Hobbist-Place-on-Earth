@@ -20,7 +20,7 @@ const SingleHobby = () => {
   });
 
   const hobby = data?.hobby || {};
-  console.log(hobbyId);
+  console.log(data);
   const thisHobby = hobby._id;
   const comments = hobby.comments;
   console.log(comments)
