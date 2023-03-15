@@ -29,7 +29,7 @@ const SingleCategory = () => {
 
     <div className="my-3">
       <div className="bg-light py-4">
-        
+
         <blockquote
           className="p-4"
           style={{
@@ -39,10 +39,10 @@ const SingleCategory = () => {
           }}
         >
           <div>
-          {category.title}    
+            {category.title}
           </div>
           {category.description}
-          
+
         </blockquote>
       </div>
       <div className='container flex-direction: row'>
@@ -56,7 +56,6 @@ const SingleCategory = () => {
             <HobbyForm category={category.title} categoryId={category._id} />
           </div>
         </aside>
-
 
         <div className='container col-xl-8 col-md-12 mb-12 p-3'>
           <h2>Hobbies:</h2>
@@ -73,7 +72,7 @@ const SingleCategory = () => {
                 Share your comments.
               </Link>
 
-              
+
             </div>
           ))}
         </div>
