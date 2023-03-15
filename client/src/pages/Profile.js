@@ -54,7 +54,7 @@ const Profile = () => {
           <h3> Hobbies:</h3>
           <div className='my-5'>
               {hobbies.map((hobby) => (
-                <div key={hobby._id}>
+                <div key={hobby._id} >
                 {/* <p>{username}</p> */}
                 <p>Title: {hobby.title}</p>
                 <p>Description: {hobby.description}</p>
@@ -63,7 +63,6 @@ const Profile = () => {
               to={`/hobbies/${hobby._id}`}
             >
               Join the discussion on this hobby.
-            </Link>
               </div>
               
           ))}
@@ -75,7 +74,7 @@ const Profile = () => {
         {!userParam && (
           <div
             className="col-12 col-md-10 mb-3 p-3"
-            style={{ border: '1px dotted #1a1a1a' }}
+            // style={{ border: '1px dotted #1a1a1a' }}
           >
             <HobbyForm />
           </div>

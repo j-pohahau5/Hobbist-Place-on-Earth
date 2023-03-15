@@ -28,10 +28,17 @@ const SingleCategory = () => {
 
 
     <div className="my-3">
-      <div className="bg-light py-4">
+      <h3 className="card-header bg-dark text-light p-2 m-0">
+        {category.title} <br />
+        <span style={{ fontSize: '1rem' }}>
+          One of my category is {category.title}
+
+        </span>
+      </h3>
+      <div className="bg-light-profile-cat py-4">
 
         <blockquote
-          className="p-4"
+          className="p-4-profile-cat"
           style={{
             fontSize: '1.5rem',
             fontStyle: 'italic',
@@ -45,39 +52,22 @@ const SingleCategory = () => {
 
         </blockquote>
       </div>
-      <div className='container flex-direction: row'>
-
-        <aside className="container col-xl-4 col-md-12 mb-12 p-3">
-          <div
-            className="col-12 col-md-10 mb-3 p-3"
-            style={{ border: '1px dotted #1a1a1a' }}
-          >
-
-            <HobbyForm category={category.title} categoryId={category._id} />
+      <HobbyForm category={category.title} categoryId={category._id} />
+      <div className='my-5'>
+        <h2>Hobbies:</h2>
+        {hobbies.map((hobby) => (
+          <div key={hobby._id}>
+            <h3>{hobby.title}</h3>
+            <p>{hobby.description}</p>
+            <Link
+              className="btn btn-primary btn-block btn-squared"
+              to={`/hobbies/${hobby._id}`}
+            >
+              Join the discussion on this hobby.
+            </Link>
           </div>
-        </aside>
-
-        <div className='container col-xl-8 col-md-12 mb-12 p-3'>
-          <h2>Hobbies:</h2>
-
-
-          {hobbies.map((hobby) => (
-            <div key={hobby._id}>
-              <h3>{hobby.title}</h3>
-              <p>{hobby.description}</p>
-              <Link
-                className="btn btn-primary btn-block btn-squared"
-                to={`/hobbies/${hobby._id}`}
-              >
-                Share your comments.
-              </Link>
-
-
-            </div>
-          ))}
-        </div>
+        ))}
       </div>
-
     </div>
   );
 };
