@@ -63,6 +63,7 @@ const Profile = () => {
               to={`/hobbies/${hobby._id}`}
             >
               Join the discussion on this hobby.
+              </Link>
               </div>
               
           ))}

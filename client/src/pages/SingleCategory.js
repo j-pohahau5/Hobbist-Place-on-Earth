@@ -45,12 +45,8 @@ const SingleCategory = () => {
           {category.description}
         </blockquote>
       </div>
-          <div className='my-6'>
-            <HobbyForm category={category.title} categoryId={category._id} />
-            {/* <HobbyList hobbies={singleCategory.hobbies} /> */}
-            <br></br>
-            <br></br>
-            <h2>Hobbies:</h2>
+      <div className='my-6'>
+        <h2>Hobbies:</h2>
             <br></br>
             {hobbies.map((hobby) => (
               <div key={hobby._id}>
@@ -65,12 +61,19 @@ const SingleCategory = () => {
             <br></br>
             </div>
         ))}
+      </div>
+          <div className='my-6'>
+            <HobbyForm category={category.title} categoryId={category._id} />
+            {/* <HobbyList hobbies={singleCategory.hobbies} /> */}
+            <br></br>
+            <br></br>
+            
           </div>
           <div>
           </div>
-        ))}
+        
       </div>
-    </div>
+    
   );
 };
 
