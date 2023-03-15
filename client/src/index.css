@@ -952,6 +952,13 @@ a:hover {
 }
 
 /* BACKGROUND UTILS */
+.bg-primary-header {
+  background-color: #8938ec !important;
+  padding-bottom: 20px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  max-height: 100%;
+}
+
 .bg-primary {
   background-color: #8938ec !important;
   border-radius: 15px 15px 0px 0px;
