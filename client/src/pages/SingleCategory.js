@@ -26,9 +26,16 @@ const SingleCategory = () => {
 
   return (
     <div className="my-3">
-      <div className="bg-light py-4">
+      <h3 className="card-header bg-dark text-light p-2 m-0">
+        {category.title} <br />
+        <span style={{ fontSize: '1rem' }}>
+          One of my category is {category.title}
+
+        </span>
+      </h3>
+      <div className="bg-light-profile-cat py-4">
         <blockquote
-          className="p-4"
+          className="p-4-profile-cat"
           style={{
             fontSize: '1.5rem',
             fontStyle: 'italic',
@@ -38,19 +45,28 @@ const SingleCategory = () => {
           {category.description}
         </blockquote>
       </div>
-      <HobbyForm category={category.title} categoryId={category._id} />
-      <div className='my-5'>
-        <h2>Hobbies:</h2>
-        {hobbies.map((hobby) => (
-          <div key={hobby._id}>
-            <h3>{hobby.title}</h3>
-            <p>{hobby.description}</p>
-            <Link
+          <div className='my-6'>
+            <HobbyForm category={category.title} categoryId={category._id} />
+            {/* <HobbyList hobbies={singleCategory.hobbies} /> */}
+            <br></br>
+            <br></br>
+            <h2>Hobbies:</h2>
+            <br></br>
+            {hobbies.map((hobby) => (
+              <div key={hobby._id}>
+              <h3>{hobby.title}</h3>
+              <p className="profile-hobby-cont">{hobby.description}</p>
+              <Link
               className="btn btn-primary btn-block btn-squared"
               to={`/hobbies/${hobby._id}`}
             >
               Join the discussion on this hobby.
             </Link>
+            <br></br>
+            </div>
+        ))}
+          </div>
+          <div>
           </div>
         ))}
       </div>
