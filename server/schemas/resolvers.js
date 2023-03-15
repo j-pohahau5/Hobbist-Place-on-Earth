@@ -27,15 +27,15 @@ const resolvers = {
       //   // .populate("userID");
       //   // .populate("comments")
       // },
-    hobbies: async (parent, { username }) => {
-      const params = username ? { username } : {};
-      return Hobby.find(params).sort({ createdAt: -1 }).populate("categories").populate("comments");
+    hobbies: async (parent, { categories }) => {
+      const params = categories ? { categories } : {};
+      return Hobby.find(params).sort({ createdAt: -1 }).populate("categories");
       // 
       // .populate("commentID")
       // .populate("userID");
     },
     hobby: async (parent, { hobbyId }) => {
-      return Hobby.findOne({ _id: hobbyId }).populate("categories").populate("comments");
+      return Hobby.findOne({ _id: hobbyId }).populate("categories").populate("comments").populate("users");
       // 
       // 
       // .populate("userID");
