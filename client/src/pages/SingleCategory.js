@@ -76,9 +76,24 @@ const SingleCategory = () => {
 
                 <Link className="a" to={`/hobbies/${hobby._id}`}>
               <h3>{hobby.title}</h3>
-</Link>
 
-              <p>{hobby.description}</p>
+              <p className="profile-hobby-cont">{hobby.description}</p>
+              <Link
+              className="btn btn-primary btn-block btn-squared"
+              to={`/hobbies/${hobby._id}`}
+            >
+              Join the discussion on this hobby.
+            </Link>
+            <br></br>
+            </div>
+        ))}
+      </div>
+          <div className='my-6'>
+            <HobbyForm category={category.title} categoryId={category._id} />
+            
+            <br></br>
+            <br></br>
+
             
 
               

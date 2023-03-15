@@ -20,7 +20,7 @@ const CommentForm = ({ thisHobby }) => {
           variables: {
             hobbies: thisHobby,
             content,
-            // commentAuthor: Auth.getProfile().data.username,
+            users: Auth.getProfile().data.username,
           },
         });
   
