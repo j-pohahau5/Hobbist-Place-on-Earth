@@ -70,6 +70,9 @@ mutation addComment ( $hobbies: ID!, $content: String! ){
     hobbies {
       _id
       title
+    } 
+    users {
+      username
     }
     
   }

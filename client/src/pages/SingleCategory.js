@@ -64,7 +64,7 @@ const SingleCategory = () => {
       </div>
           <div className='my-6'>
             <HobbyForm category={category.title} categoryId={category._id} />
-            {/* <HobbyList hobbies={singleCategory.hobbies} /> */}
+            
             <br></br>
             <br></br>
             
