@@ -14,22 +14,23 @@ const resolvers = {
     },
     categories: async (parent, { username }) => {
       const params = username ? { username } : {};
-      return await Category.find(params).sort({ createdAt: -1 }).populate("hobbies");
+      return await Category.find(params).sort({ createdAt: -1 }).populate("hobbies").populate("users");
     },
+    // .populate("comments")
     category: async (parent, { categoryId }) => {
-      return Category.findOne({ _id: categoryId }).populate("hobbies");
+      return Category.findOne({ _id: categoryId }).populate("hobbies").populate("users");
     },
-      //   
-      // comments: async (parent, { hobbies }) => {
-      //   return Comment.findOne({ d }).populate("comments");
-      //   // 
-      //   // 
-      //   // .populate("userID");
-      //   // .populate("comments")
-      // },
+      //   .populate("comments")
+      comments: async (parent, { hobbies }) => {
+        return Comment.findOne({ hobbies }).populate("users")
+        // 
+        // 
+        // ;
+        // .populate("comments")
+      },
     hobbies: async (parent, { categories }) => {
       const params = categories ? { categories } : {};
-      return Hobby.find(params).sort({ createdAt: -1 }).populate("categories");
+      return Hobby.find(params).sort({ createdAt: -1 }).populate("categories").populate("comments").populate("users");
       // 
       // .populate("commentID")
       // .populate("userID");

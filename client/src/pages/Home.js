@@ -17,7 +17,7 @@ import { QUERY_CATEGORIES } from '../utils/queries';
 const Home = () => {
   const { loading, data } = useQuery(QUERY_CATEGORIES);
   const categories = data?.categories || [];
-
+    console.log(data)
   return (
     <main>
       <div className="flex-row justify-center">
