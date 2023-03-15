@@ -28,23 +28,18 @@ const SingleHobby = () => {
         <h1>{hobby.title}</h1>
         <p>{hobby.description}</p>
       </div>
-      
-      
       <div className='my-6'>
-      <h2>Comments:</h2>
-      
-    </div>
+        <h2>Comments:</h2>  
+      </div>
       {comments.map(comment => (
         <div key={comment._id} className='my-6'>
-          <p>Comment</p>
-          <p>Content: {comment.content}</p>
-          <ul>
-            {comment.users.map(user => (
+          {comment.users.map(user => (
               <p key={user._id}>
-                Username: {user.username}
+                Commented by: {user.username}
               </p>
             ))}
-          </ul>
+
+          <p>Content: {comment.content}</p>
         </div>
       ))}
       <div className='my-6'>
