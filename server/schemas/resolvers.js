@@ -6,11 +6,11 @@ const { signToken } = require("../utils/auth");
 const resolvers = {
   Query: {
     users: async () => {
-      return User.find().populate("hobbies");
+      return User.find().populate("hobbies").populate("comments");
       //   
     },
     user: async (parent, { username }) => {
-      return User.findOne({ username }).populate("hobbies");
+      return User.findOne({ username }).populate("hobbies").populate("comments");
     },
     categories: async (parent, { username }) => {
       const params = username ? { username } : {};
@@ -21,13 +21,10 @@ const resolvers = {
       return Category.findOne({ _id: categoryId }).populate("hobbies").populate("users");
     },
       //   .populate("comments")
-      comments: async (parent, { hobbies }) => {
-        return Comment.findOne({ hobbies }).populate("users")
-        // 
-        // 
-        // ;
+    comments: async (parent, { hobbies }) => {
+      return Comment.find({ hobbies }).populate("users").populate("hobbies")
         // .populate("comments")
-      },
+    },
     hobbies: async (parent, { categories }) => {
       const params = categories ? { categories } : {};
       return Hobby.find(params).sort({ createdAt: -1 }).populate("categories").populate("comments").populate("users");
@@ -120,9 +117,12 @@ const resolvers = {
     },
     addComment: async (parent, { hobbies, content }, context) => {
       if (context.user) {
+        // const id = context.user._id;
+        // const username = context.user.username;
         const comment = await Comment.create({
           content,
-          hobbies
+          hobbies, 
+          users: context.user._id, 
         });
         await Hobby.findOneAndUpdate(
           { _id: hobbies },
@@ -137,7 +137,7 @@ const resolvers = {
           }
         );
         await User.findOneAndUpdate(
-          { _id: context.user._id },
+          { _id:  context.user._id},
           { $addToSet: { comments: comment._id } }
         );
         return comment;

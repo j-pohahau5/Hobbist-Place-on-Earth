@@ -47,9 +47,7 @@ const SingleCategory = () => {
                           lineHeight: '1.5',
                         }}  
                       >
-                        <div>
-                          {category.title}
-                        </div>
+
                         {category.description}
 
                       </blockquote>
@@ -69,16 +67,36 @@ const SingleCategory = () => {
 
         <div className='my-5 container col-xl-8 col-md-12 mb-12 p-3'>
           <h2>Hobbies:</h2>
+          
+
+
+
           {hobbies.map((hobby) => (
             <div key={hobby._id}>
+
+                <Link className="a" to={`/hobbies/${hobby._id}`}>
               <h3>{hobby.title}</h3>
-              <p>{hobby.description}</p>
+
+              <p className="profile-hobby-cont">{hobby.description}</p>
               <Link
-                className="btn btn-primary btn-block btn-squared"
-                to={`/hobbies/${hobby._id}`}
-              >
-                Join the discussion on this hobby.
-              </Link>
+              className="btn btn-primary btn-block btn-squared"
+              to={`/hobbies/${hobby._id}`}
+            >
+              Join the discussion on this hobby.
+            </Link>
+            <br></br>
+            </div>
+        ))}
+      </div>
+          <div className='my-6'>
+            <HobbyForm category={category.title} categoryId={category._id} />
+            
+            <br></br>
+            <br></br>
+
+            
+
+              
               <br></br>
               </div>
           ))}
@@ -91,6 +109,7 @@ const SingleCategory = () => {
     </div>
 
     </div>
+    
 
   );
 };

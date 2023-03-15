@@ -2,21 +2,21 @@ import { gql } from '@apollo/client';
 
 
 export const QUERY_USER = gql`
-  query users{
-    user {
+  query users {
+    users {
       _id
-      username
       email
-      categories {
+      username
+      hobbies{
         _id
         title
         description
-        hobbies {
-          _id
-          title
-          description
-        }
       }
+      comments{
+        _id
+        content
+      }
+
     }
   }
 `;
@@ -68,15 +68,32 @@ export const QUERY_ALL_COMMENTS = gql`
     comments {
       _id
       content
-      user {
+      users {
         username
       }
-      hobby { category }
+      hobbies { category }
     }
   }
 `;
 
-
+export const QUERY_COMMENTS = gql`
+  query comments($hobbies: ID!) {
+    comments(hobbies: $hobbies) {
+      _id
+      content
+      hobbies{
+        _id
+        title
+        description
+      }
+      users {
+        _id
+        username
+        
+      }
+    }
+  }
+`;
 
 
 export const QUERY_SINGLE_HOBBY = gql`
@@ -89,17 +106,18 @@ export const QUERY_SINGLE_HOBBY = gql`
         title
       }
       comments {
+        _id
         content
         users {
           _id
           username
-          email
+          
         }
       }
       users {
         _id
         username
-        email
+        
       }
     }
   }
@@ -118,3 +136,4 @@ export const QUERY_ME = gql`
     }
   }
 `;
+
