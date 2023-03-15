@@ -84,6 +84,7 @@ export const QUERY_SINGLE_HOBBY = gql`
     hobby(hobbyId: $hobbyId) {
       _id
       title
+      description
       categories {
         title
       }
