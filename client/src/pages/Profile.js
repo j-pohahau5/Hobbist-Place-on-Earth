@@ -1,7 +1,7 @@
 import React from 'react';
 import { Navigate, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-
+import { Link } from 'react-router-dom';
 import HobbyForm from '../components/HobbyForm';
 import HobbyList from '../components/HobbyList';
 
@@ -58,8 +58,13 @@ const Profile = () => {
                 {/* <p>{username}</p> */}
                 <p>Title: {hobby.title}</p>
                 <p>Description: {hobby.description}</p>
-                
+                <Link
+              className="btn btn-primary btn-block btn-squared"
+              to={`/hobbies/${hobby._id}`}
+            >
+              Join the discussion on this hobby.
               </div>
+              
           ))}
         
         

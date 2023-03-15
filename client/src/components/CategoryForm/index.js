@@ -51,6 +51,7 @@ const CategoryForm = () => {
       setTitle('');
       setDescription('');
       setCharacterCount(0);
+      window.location.reload();
     } catch (e) {
       console.error(e);
     }
