@@ -25,6 +25,7 @@ const CommentForm = ({ thisHobby }) => {
         });
   
         setContent('');
+        window.location.reload();
       } catch (err) {
         console.error(err);
       }

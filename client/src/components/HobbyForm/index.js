@@ -81,7 +81,7 @@ const HobbyForm = ({ category }) => {
       setTitle('');
       setDescription('');
       setSelectedCategory(null);
-
+      window.location.reload();
     } catch (error) {
       console.error('Error creating hobby:', error);
     }
