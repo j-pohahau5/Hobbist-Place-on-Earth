@@ -33,6 +33,33 @@ export const ADD_USER = gql`
   }
 `;
 
+export const REMOVE_CATEGORY = gql`
+  mutation removeCategory($categoryId: ID!) {
+    removeCategory(categoryId: $categoryId) {
+      _id
+    }
+    
+  }
+`;
+
+export const DELETE_HOBBY = gql`
+  mutation removeHobby($hobbyId: ID!, $categoryId: ID!) {
+    removeHobby(hobbyId: $hobbyId, categoryId: $categoryId) {
+      _id
+    }
+    
+  }
+`;
+
+export const DELETE_COMMENT = gql`
+  mutation removeComment($hobbyId: ID!, $commentId: ID!) {
+    removeComment(hobbyId: $hobbyId, commentId: $commentId) {
+      _id
+    }
+    
+  }
+`;
+
 export const ADD_CATEGORY = gql`
   mutation addCategory ( $title: String!, $description: String!){
     addCategory ( title: $title, description: $description) {

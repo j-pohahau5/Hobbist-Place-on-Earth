@@ -67,7 +67,7 @@ const typeDefs = gql`
     addHobbyDislike(_id: String!, dislikes: Int!): Hobby
     addCommentDislike(_id: String!, dislikes: Int!): Comment
     removeCategory(categoryId: ID!): Category
-    removeHobby(hobbyId: ID!): Hobby
+    removeHobby(hobbyId: ID!, categoryId: ID!): Hobby
     removeComment(hobbyId: ID!, commentId: ID!): Comment
     removeHobbyLike(_id: String!, likes: Int!): Hobby
     removeCommentLike(_id: String!, likes: Int!): Comment
