@@ -43,7 +43,7 @@ const SingleHobby = () => {
         </div>
       ))}
       <div className='my-6'>
-        <CommentForm hobbies={hobbyId} />
+        <CommentForm thisHobby={hobbyId} />
         <br></br>
         <br></br>
       </div>
