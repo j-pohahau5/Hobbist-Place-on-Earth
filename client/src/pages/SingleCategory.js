@@ -27,12 +27,12 @@ const SingleCategory = () => {
   return (
       <div>
         <div>
-          <h3 className="card-header bg-dark text-light p-2 m-0">
+          <h2 className="card-header bg-dark text-light p-2 m-0">
             {category.title} <br />
             <span style={{ fontSize: '1rem' }}>
           One of my category is {category.title}
           </span>
-        </h3>
+        </h2>
       <div className="bg-light-profile-cat py-4">
         <blockquote
           className="p-4-profile-cat"
@@ -48,21 +48,21 @@ const SingleCategory = () => {
       </div>
   
       <div className="my-3 container flex-direction: row">
-          <aside className="container col-xl-4 col-md-12 mb-12 p-3">
+          {/* <aside className="container col-xl-4 col-md-12 mb-12 p-3">
           <div
             className="col-12 col-md-10 mb-3 p-3"
             style={{ border: '1px dotted #1a1a1a' }}
           >
           <HobbyForm category={category.title} categoryId={category._id} />
           </div>
-        </aside>
+        </aside> */}
 
         <div className='my-5 container col-xl-8 col-md-12 mb-12 p-3'>
-          <h2>Hobbies:</h2>
+          <h3>Hobbies:</h3>
             {hobbies.map((hobby) => (
               <div key={hobby._id}>
                 <Link className="a" to={`/hobbies/${hobby._id}`}>
-                  <h3>{hobby.title}</h3>
+                  <h4>{hobby.title}</h4>
                 </Link>
               <p className="profile-hobby-cont">{hobby.description}</p>
               <Link
