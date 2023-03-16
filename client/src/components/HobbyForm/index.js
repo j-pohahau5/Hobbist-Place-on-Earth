@@ -114,7 +114,7 @@ const HobbyForm = ({ category, swal }) => {
 
   return (
     <div className='form-group'>
-      <h3>Add a New Hobby</h3>
+      <h5>Add a New Hobby</h5>
       {Auth.loggedIn() ? (
         <>
           <p

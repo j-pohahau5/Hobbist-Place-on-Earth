@@ -66,7 +66,7 @@ const CategoryForm = ({ swal }) => {
 
   return (
     <div>
-      <h3>Add a New Category</h3>
+      <h5>Add a New Category</h5>
       {Auth.loggedIn() ? (
         <>
           <p
@@ -76,11 +76,9 @@ const CategoryForm = ({ swal }) => {
             Character Count: {characterCount}/280
           </p>
           <form onSubmit={handleSubmit}>
-            <div>
-              <label>
-                Title:   </label>
-
-            </div>
+            <label>
+              Title:   
+            </label>
             <input
               name='title'
               value={title}

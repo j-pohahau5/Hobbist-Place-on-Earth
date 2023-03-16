@@ -15,7 +15,7 @@ const Footer = () => {
             &larr; Go Back
           </button>
         )}
-        <h4>
+        <h6>
           Hobbiest Place on Earth{' '}
           <span
             className="emoji"
@@ -26,7 +26,7 @@ const Footer = () => {
             ❤️
           </span>{' '}
           by the Team 7.
-        </h4>
+        </h6>
       </div>
     </footer>
   );
