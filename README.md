@@ -96,7 +96,69 @@ I WANT to JOIN AN EXISTING HOBBY
 
 [Coolors](https://coolors.co/)
 
+# Code snippets
 
+➡️ Models:
+
+user as example:
+
+Model associations / relationships
+
+user has
+
+many hobbies
+many likes
+many comments
+
+The user schema defines a user object with the following fields:
+
+username: A required string that is unique and trimmed.
+
+email: A required string that is unique and matches an email address pattern.
+
+password: A required string with a minimum length of 5 characters.
+
+hobbies: An array of object IDs referencing Hobby objects.
+
+comments: An array of object IDs referencing Comment objects.
+
+categories: An array of object IDs referencing Category objects.
+
+![model](./screenshot/model.png)
+
+
+➡️ Type-defs:
+
+The typeDef.js file in our schema defines the GraphQL schema for an application that involves users, categories, hobbies, and comments.
+
+It uses the gql function from apollo-server-express to define the schema using GraphQL's type definition language.
+
+The schema includes four main types: User, Category, Comment, and Hobby. Each of these types has a set of fields that define the data that can be queried or mutated.
+
+The Query type defines the queries that can be executed to retrieve data from the application. The available queries include users, user, categories, comments, category, hobbies, hobby, and me.
+
+The Mutation type defines the mutations that can be executed to modify data in the application. There are 16 available mutations, SUCH AS 
+
+![defs](./screenshot/defs.png)
+
+➡️ Tailwindscss & Sweetalert2 :
+
+This code snippet displayed is using the withSwal higher-order component (HOC) from the react-sweetalert2 library.
+
+Higher-order components are functions that take a component and return a new component with additional functionality. withSwal is a HOC that adds SweetAlert2 functionality to a component. 
+
+WE USED REACT-SWEETALERT2 "V.0.5.2" IN ORDER TO GET alerts RENDERed ON the client side of OUR REACT APP 17.0.1 . 
+
+THE REACT APP GETS IMPORTED AT THE TOP OF THE JS PAGE THAT IT GETS USED ON. THE AWAIT SWAL THEN TELLS THE CODE ONCE THIS GETS REMOVED, WAIT A MOMENT (TIMER) AND THEN SAY SUCCESSFULLY DELETED. 
+ 
+OUR PAGE INCLUDES: 
+"ADD COMMENT"
+"ADD CATEGORIES"
+"DELETE COMMENTS"
+"DELETE CATEGORIES"
+
+![FRAMEWORKS](./screenshot/framework.png)
+![FRAMEWORKS](./screenshot/framework2.png)
 
 # Installation 🤖
 
