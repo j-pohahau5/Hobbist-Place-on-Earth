@@ -17,6 +17,7 @@ const CategoryList = ({
       {categories &&
         categories.map((category) => (
             <Link
+              key={category._id}
               className="a"
               to={`/categories/${category._id}`}
             >
