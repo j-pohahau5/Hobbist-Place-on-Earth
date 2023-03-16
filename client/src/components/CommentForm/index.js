@@ -48,7 +48,7 @@ const CommentForm = ({ thisHobby, swal }) => {
 
   return (
     <div>
-      <h4>What are your thoughts on this hobby?</h4>
+      <h5>What are your thoughts on this hobby?</h5>
 
       {Auth.loggedIn() ? (
         <>

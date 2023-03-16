@@ -47,13 +47,15 @@ const SingleCategory = () => {
   
 
   return (
-    <div className="my-3">
-      <h3 className="card-header bg-dark text-light p-2 m-0">
-        {category.title} <br />
-        <span style={{ fontSize: '1rem' }}>
+      <div>
+        <div>
+          <h2 className="card-header bg-dark text-light p-2 m-0">
+            {category.title} <br />
+            <span style={{ fontSize: '1rem' }}>
           One of my category is {category.title}
-        </span>
-      </h3>
+
+          </span>
+        </h2>
       <div className="bg-light-profile-cat py-4">
         <blockquote
           className="p-4-profile-cat"
@@ -61,41 +63,47 @@ const SingleCategory = () => {
             fontSize: '1.5rem',
             fontStyle: 'italic',
             lineHeight: '1.5',
-          }}
+          }}  
         >
           {category.description}
         </blockquote>
       </div>
-      <div className="my-6">
-        <h2>Hobbies:</h2>
-        <br></br>
-        {hobbies.map((hobby) => (
-          <div key={hobby._id}>
-            <h3>{hobby.title}</h3>
-            <p className="profile-hobby-cont">{hobby.description}</p>
-            <Link
-              className="btn btn-primary btn-block btn-squared"
-              to={`/hobbies/${hobby._id}`}
-            >
-              Join the discussion on this hobby.
-            </Link>
-            <button
-              className="btn btn-danger btn-block btn-squared"
-              onClick={() => handleDelete(hobby._id)}
-            >
-              Delete
-            </button>
+
+      <div className="my-3 container flex-direction: row">
+          
+
+        <div className='my-5 container col-xl-8 col-md-12 mb-12 p-3'>
+          <h3>Hobbies:</h3>
+            {hobbies.map((hobby) => (
+              <div key={hobby._id}>
+                <Link className="a" to={`/hobbies/${hobby._id}`}>
+                  <h4>{hobby.title}</h4>
+                </Link>
+              <p className="profile-hobby-cont">{hobby.description}</p>
+              <Link
+                className="btn btn-primary btn-block btn-squared"
+                to={`/hobbies/${hobby._id}`}
+              >
+                Join the discussion on this hobby.
+              </Link>
             <br></br>
-          </div>
-        ))}
-      </div>
-      <div className="my-6">
-        <HobbyForm category={category.title} categoryId={category._id} />
+              <button
+                className="btn btn-danger btn-block btn-squared"
+                onClick={() => handleDelete(hobby._id)}
+              >
+                Delete
+              </button>
+              <br></br>
+            </div>
+          ))}
+        </div>
+        <div className="my-6">
+          <HobbyForm category={category.title} categoryId={category._id} />
   
-        <br></br>
-        <br></br>
-      </div>
-      <div></div>
+          <br></br>
+          <br></br>
+        </div>
+        <div></div>
     </div>
   );
 };  

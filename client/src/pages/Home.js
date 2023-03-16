@@ -2,12 +2,13 @@ import React from 'react';
 import { useQuery, useMutation } from '@apollo/client';
 import { Link } from 'react-router-dom';
 
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+// import Header from '../components/Header';
+// import Footer from '../components/Footer';
 import HobbyForm from '../components/HobbyForm';
 import CategoryForm from '../components/CategoryForm';
 import CategoryList from '../components/CategoryList';
 import { QUERY_CATEGORIES } from '../utils/queries';
+
 import { REMOVE_CATEGORY } from '../utils/mutations';
 import Swal from 'sweetalert2';
 
@@ -50,15 +51,23 @@ const Home = () => {
   // }
 
   return (
-    <main>
-      <div className="flex-row justify-center">
-        <div className="col-12 col-md-10 mb-3 p-3">
-          <HobbyForm />
-        </div>
-        <div className="col-12 col-md-10 mb-3 p-3">
-          <CategoryForm />
-        </div>
-        <div className="col-13 col-md-8 mb-3">
+
+      <div className='container flex-direction: row'>
+        <aside className="container col-xl-4 col-md-12 mb-12 p-3">
+            `<div
+              className="col-12 col-md-10 mb-3 p-3"
+              style={{ border: '1px dotted #1a1a1a' }}
+            >
+              <HobbyForm />
+              `</div>
+            `<div
+              className="col-12 col-md-10 mb-3 p-3"
+              style={{ border: '1px dotted #1a1a1a' }}
+            >
+              <CategoryForm />
+            </div>
+          </aside>
+        <div className="container col-xl-8 col-md-12 mb-12 p-3">
           {loading ? (
             <div>Loading...</div>
           ) : (
@@ -71,7 +80,7 @@ const Home = () => {
           )}
         </div>
       </div>
-    </main>
+
   );
 };
 

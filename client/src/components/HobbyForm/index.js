@@ -17,37 +17,37 @@ const HobbyForm = ({ category, swal }) => {
   const { loading, data } = useQuery(QUERY_CATEGORIES);
 
   const categories = data?.categories || [];
-  
+
   const options = categories.map((category) => ({
     value: category._id,
     label: category.title,
   }))
-  
+
   const [categoriesOptions, setCategoriesOptions] = useState([]);
 
   useEffect(() => {
-    setCategoriesOptions(categories.map((category) =>({
+    setCategoriesOptions(categories.map((category) => ({
       value: category._id,
       label: category.title,
     })))
   }, [categories]);
 
   useEffect(() => {
-    if (category){
+    if (category) {
       const option = categoriesOptions.find((option) => option.label === category);
       if (option !== selectedCategory) {
-      setSelectedCategory(option);
+        setSelectedCategory(option);
       }
-    }  
+    }
   }, [category, categoriesOptions, selectedCategory]);
 
   const [addHobby, { loading: Loading, error: mutationError }] = useMutation(ADD_HOBBY, {
     update(cache, { data: { addHobby } }) {
-      try{
-        
+      try {
+
         const { categories } = cache.readQuery({ query: QUERY_SINGLE_CATEGORY });
         const updatedCategories = categories.map((category) => {
-          if (category._id === addHobby.categories[0]._id){
+          if (category._id === addHobby.categories[0]._id) {
             return {
               ...category,
               hobbies: [...category.hobbies, addHobby],
@@ -58,13 +58,13 @@ const HobbyForm = ({ category, swal }) => {
         });
         cache.writeQuery({
           query: QUERY_CATEGORIES,
-          data: { categories: updatedCategories}
+          data: { categories: updatedCategories }
         });
       } catch (e) {
         console.error(e)
       }
     },
- });
+  });
 
 
  const handleSubmit = async (e) => {
@@ -102,7 +102,7 @@ const HobbyForm = ({ category, swal }) => {
   const handleChange = (event) => {
     const { name, value } = event.target;
 
-    if(name === 'description' && value.length <= 280) {
+    if (name === 'description' && value.length <= 280) {
       setDescription(value);
     } else {
       setTitle(value);
@@ -113,42 +113,50 @@ const HobbyForm = ({ category, swal }) => {
 
 
   return (
-    <div>
-      <h3>Add a New Hobby</h3>
+    <div className='form-group'>
+      <h5>Add a New Hobby</h5>
       {Auth.loggedIn() ? (
         <>
           <p
-            className={`m-0 ${
-              characterCount === 280 || mutationError ? 'text-danger' : ''
-            }`}
+            className={`m-0 ${characterCount === 280 || mutationError ? 'text-danger' : ''
+              }`}
           >
             Character Count: {characterCount}/280
           </p>
           <form onSubmit={handleSubmit}>
-            <label>
-              Title:
-              <input
-              value={title} 
+
+            <div >
+              <label> Title:
+              </label>
+            </div>
+
+            <input
+              value={title}
               onChange={handleChange}
-              />
-            </label>
+            />
+
+
             <label>
               Description:
-              <input
-                name='description'
-                value={description} 
-                onChange={handleChange}
-              />
             </label>
+
+            <input
+              name='description'
+              value={description}
+              onChange={handleChange}
+            />
+
             <label>
               Category:
-              <Select
-                options={options}
-                value={selectedCategory}
-                onChange={setSelectedCategory}
-                isClearable 
-              />
             </label>
+
+            <Select
+              options={options}
+              value={selectedCategory}
+              onChange={setSelectedCategory}
+              isClearable
+            />
+
             <button type="submit" disabled={!title || !description}>
               {Loading ? 'Creating...' : 'Create Hobby'}
             </button>

@@ -16,6 +16,12 @@ const CategoryList = ({
       { <h3>{title}</h3> && <p>{description}</p>}
       {categories &&
         categories.map((category) => (
+            <Link
+              key={category._id}
+              className="a"
+              to={`/categories/${category._id}`}
+            >
+
           <div key={category._id} className="card mb-3">
             <h4 className="card-header bg-primary text-light p-2 m-0">
             </h4>
@@ -23,6 +29,7 @@ const CategoryList = ({
               <p>{category.title}</p>
               <p>{category.description}</p>
             </div>
+
             <div className="card-footer">
               <button
                 className="btn btn-danger btn-block btn-squared"
@@ -37,7 +44,10 @@ const CategoryList = ({
                 Join the discussion on this category.
               </Link>
             </div>
+
           </div>
+
+ </Link>
         ))}
     </div>
   );
