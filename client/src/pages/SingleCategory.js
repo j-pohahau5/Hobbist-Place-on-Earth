@@ -105,6 +105,8 @@ const SingleCategory = () => {
         </div>
         <div></div>
     </div>
+    </div>
+    </div>
   );
 };  
 
