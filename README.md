@@ -1,11 +1,10 @@
 # Hobbist-Place-on-Earth
 
+
 ## Description 📖
 
-<<<<<<< Updated upstream
-=======
 MERN-stack single-page application, with a scalable MongoDB back end, a GraphQL API, and an Express.js and Node.js server with a React front end, implementing user authentication with JWT to build a user-focused platform.
->>>>>>> Stashed changes
+
 
 ## Getting Started 💃
 
@@ -38,13 +37,54 @@ Create a Interactive MERN Stack Single-Page Application with the following featu
 
 # User story ✏️
 
- ![image info](./assets/images/user1.png)
+№1
 
+AS A USER  if I am not logged in 
+I WANT to be able to look at a list of hobbies -OR-view a list of a hobby categories SO I MAY read about them.
+
+ ![image info](image.png)
+
+№2
+
+AS A USER I have an option to login or signUp BECAUSE  
+I WANT to  build 
+a profile so that through my account I may add categories and hobbies that become associateD with my profile.
+
+№3
+
+AS A USER when I’m logged in 
+I WANT to ADD commentS TO other hobbies so that I may share my experienceS with others.
+
+№3
+AS A USER when I’m logged in 
+I WANT to JOIN AN EXISTING HOBBY
 
 # Built With ⚙️
 
 
-<<<<<<< Updated upstream
+
+ [Mongodb](https://www.mongodb.com/)
+
+[Express](https://expressjs.com/)
+
+[React](https://react.dev/)
+
+[Nodejs](https://nodejs.org/en)
+
+[Graphql](https://graphql.org/)
+
+[Heroku](https://id.heroku.com/login)
+
+[Tailwind](https://tailwindcss.com/)
+
+[Mongoose](https://www.npmjs.com/package/mongoose)
+
+[Sweetalerts](https://sweetalert2.github.io/)
+
+[Coolors](https://coolors.co/)
+
+
+
 # Installation 🤖
 To install the project follow these steps:
 
@@ -58,19 +98,13 @@ To install the project follow these steps:
 The project was uploaded to GitHub at the following repository:
 
 https://github.com/j-pohahau5/Hobbist-Place-on-Earth
->>>>>>> Stashed changes
+
+
 
 ## Authors 💣
 
 ** OUR TEAM **  
-💻
-💻
-💻
-💻
-💻
 
-<<<<<<< Updated upstream
-=======
 💻- [Alex Horning](https://github.com/makeitouthill)
 
 💻- [Emil Ronquillo](https://github.com/Emil1577)
@@ -80,7 +114,7 @@ https://github.com/j-pohahau5/Hobbist-Place-on-Earth
 💻- [Jonathan Pohahau](https://github.com/j-pohahau5)
 
 💻- [Roksolana Odynak](https://github.com/poucoLouco)
->>>>>>> Stashed changes
+
 
 
 # License 📑
