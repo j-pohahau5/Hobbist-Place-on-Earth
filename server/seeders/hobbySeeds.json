@@ -2,28 +2,28 @@
   {   
     "title": "Drawing",
     "description": "Sketching and drawing",   
-    "categoryId": "6412b12c5620e682be7df3cf", 
+    "categories": ["6412b12c5620e682be7df3cf"], 
     "userId": "6412cbe5c4bdcb7da248e845",
     "_id": "6412cbfac4bdcb7da248e84a"
   },
   {
     "title": "Basketball",
     "description": "Playing basketball",
-    "categoryId": "6412b12c5620e682be7df3d0",
+    "categories": ["6412b12c5620e682be7df3d0"],
     "userId": "6412cbe5c4bdcb7da248e846",
     "_id": "6412cbfac4bdcb7da248e84b"
   },
   {
     "title": "Guitar",
     "description": "Playing guitar",
-    "categoryId": "6412b12c5620e682be7df3d1",
+    "categories": ["6412b12c5620e682be7df3d1"],
     "userId": "6412cbe5c4bdcb7da248e847",
     "_id": "6412cbfac4bdcb7da248e84c"
   },
   {
     "title": "Coding",
     "description": "Programming and coding",
-    "categoryId": "6412b12c5620e682be7df3d2",
+    "categories": ["6412b12c5620e682be7df3d2"],
     "userId": "6412cbe5c4bdcb7da248e848",
     "_id": "6412cbfac4bdcb7da248e84d"
   }
