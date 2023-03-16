@@ -193,7 +193,7 @@ const resolvers = {
       throw new AuthenticationError("You need to be logged in!");
     },
     removeCategory: async (parent, { categoryId }, context) => {
-      if (context.user) {
+      // if (context.user) {
         const category = await Category.findOneAndDelete({
           _id: categoryId,
         });
@@ -204,10 +204,10 @@ const resolvers = {
         );
 
         return category;
-      }
-      throw new AuthenticationError("You need to be logged in!");
+      // }
+      // throw new AuthenticationError("You need to be logged in!");
     },
-    removeHobby: async (parent, { hobbyId }, context) => {
+    removeHobby: async (parent, { hobbyId, categoryId }, context) => {
       if (context.user) {
         const hobby = await Hobby.findOneAndDelete({
           _id: hobbyId,
@@ -217,11 +217,11 @@ const resolvers = {
           { $pull: { hobbies: hobby._id } },
           { new: true }
         );
-        await Comment.findAndUpdate(
-          { _id: commentId },
-          { $pull: { hobbies: hobby._id } },
-          { new: true }
-        );
+        // await Comment.findAndUpdate(
+        //   { _id: commentId },
+        //   { $pull: { hobbies: hobby._id } },
+        //   { new: true }
+        // );
         await User.findOneAndUpdate(
           { _id: context.user._id },
           { $pull: { hobbies: hobby._id } }
@@ -231,7 +231,7 @@ const resolvers = {
       throw new AuthenticationError("You need to be logged in!");
     },
     removeComment: async (parent, { hobbyId, commentId }, context) => {
-      if (context.user) {
+      // if (context.user) {
         const comment = await Comment.findOneAndDelete({
           _id: commentId,
         });
@@ -240,8 +240,8 @@ const resolvers = {
           { $pull: { comments: comment._id } },
           { new: true }
         );
-      }
-      throw new AuthenticationError("You need to be logged in!");
+      // }
+      // throw new AuthenticationError("You need to be logged in!");
     },
     removeHobbyLike: async (parent, { _id, likes }) => {
       if (context.user) {

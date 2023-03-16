@@ -5,7 +5,7 @@ const CategoryList = ({
   categories,
   title,
   description,
-//   showTitle = true,
+  onDelete,
 }) => {
   if (!categories.length) {
     return <h3>No Categories Yet</h3>;
@@ -30,8 +30,21 @@ const CategoryList = ({
               <p>{category.description}</p>
             </div>
 
-          
-           
+            <div className="card-footer">
+              <button
+                className="btn btn-danger btn-block btn-squared"
+                onClick={() => onDelete(category._id)}
+              >
+                Delete
+              </button>
+              <Link
+                className="btn btn-primary btn-block btn-squared"
+                to={`/categories/${category._id}`}
+              >
+                Join the discussion on this category.
+              </Link>
+            </div>
+
           </div>
 
  </Link>
