@@ -62,7 +62,6 @@ I WANT to JOIN AN EXISTING HOBBY
 # Built With ⚙️
 
 
-
  [Mongodb](https://www.mongodb.com/)
 
 [Express](https://expressjs.com/)
@@ -88,18 +87,31 @@ I WANT to JOIN AN EXISTING HOBBY
 # Installation 🤖
 To install the project follow these steps:
 
-# User stories 🔍
+In the project directory, you can run:
 
-## Contribution 💾 
-=======
+npm install
+
+than
+
+npm run build
+
+Builds the app for production to the build folder.
+It correctly bundles React in production mode and optimizes the build for the best performance.
+
+The build is minified and the filenames include the hashes.
+Your app is ready to be deployed!
+
+npm run develop
 
 # Usage & Installation 🤖
 
-The project was uploaded to GitHub at the following repository:
+The URL of the functional, deployed application(heroku)
+
+
+
+The URL of the GitHub repository. Give the repository a unique name and include a README describing the project
 
 https://github.com/j-pohahau5/Hobbist-Place-on-Earth
-
-
 
 ## Authors 💣
 
@@ -114,7 +126,6 @@ https://github.com/j-pohahau5/Hobbist-Place-on-Earth
 💻- [Jonathan Pohahau](https://github.com/j-pohahau5)
 
 💻- [Roksolana Odynak](https://github.com/poucoLouco)
-
 
 
 # License 📑
