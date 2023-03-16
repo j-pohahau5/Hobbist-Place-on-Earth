@@ -25,18 +25,18 @@ const SingleHobby = () => {
   return (
     <div>
       <div className='my-6'>
-        <h1>{hobby.title}</h1>
+        <h2>{hobby.title}</h2>
         <p>{hobby.description}</p>
       </div>
       <div className='my-6'>
-        <h2>Comments:</h2>  
+        <h3>Comments:</h3>  
       </div>
       {comments.map(comment => (
         <div key={comment._id} className='my-6'>
           {comment.users.map(user => (
-              <p key={user._id}>
+              <h4 key={user._id}>
                 Commented by: {user.username}
-              </p>
+              </h4>
             ))}
 
           <p>Content: {comment.content}</p>
