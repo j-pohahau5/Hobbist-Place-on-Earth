@@ -23,6 +23,7 @@ html {
  */
 body {
   margin: 0;
+  background-image: url("./assets/body.png");;
 }
 
 /**
@@ -1681,6 +1682,12 @@ label form [type='radio'] {
   }
 }
 
+img {
+
+  border-radius: 50%;
+  width: 250px;
+  height: 250px;
+}
 /* col-xl */
 @media screen and (min-width: 1200px) {
   .col-xl-1 {

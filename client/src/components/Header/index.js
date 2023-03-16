@@ -1,7 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import image from '../../assets/myphoto.jpg'
+// import image from '../../assets/fon.png';
 import Auth from '../../utils/auth';
+import logo from '../../assets/lolo.png';
+ 
+
 
 const Header = () => {
   const logout = (event) => {
@@ -9,13 +12,18 @@ const Header = () => {
     Auth.logout();
   };
   return (
-    <header style={{ backgroundImage:`url(${image})`}} className="bg-primary mb-6 py-3 flex-row align-center ">
+    <header style={{
+      backgroundColor: '#eee8b6', border: '3px solid #5b8c80'}}>
 
       <div className="container flex-row justify-space-between-lg justify-center align-center">
         <div>
           <Link className="a" to="/">
             <h1 className="m-2">Hobbiest Place On Earth</h1>
           </Link>
+
+
+            <img src={logo} alt=""/>
+
           <p className="m-0"></p>
         </div>
         <div>
@@ -44,5 +52,6 @@ const Header = () => {
 
   );
 };
+
 
 export default Header;
