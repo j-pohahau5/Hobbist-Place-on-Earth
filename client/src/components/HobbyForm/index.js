@@ -6,13 +6,14 @@ import { ADD_HOBBY } from '../../utils/mutations';
 import { QUERY_CATEGORIES, QUERY_SINGLE_CATEGORY } from '../../utils/queries';
 
 import Auth from '../../utils/auth';
+import { withSwal } from 'react-sweetalert2';
 
-const HobbyForm = ({ category }) => {
+const HobbyForm = ({ category, swal }) => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [characterCount, setCharacterCount] = useState(0);
-
+//   const HobbyFormWithSwal = withSwal(HobbyForm);
   const { loading, data } = useQuery(QUERY_CATEGORIES);
 
   const categories = data?.categories || [];
@@ -66,9 +67,9 @@ const HobbyForm = ({ category }) => {
   });
 
 
-  const handleSubmit = async (e) => {
+ const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     try {
       await addHobby({
         variables: {
@@ -77,11 +78,22 @@ const HobbyForm = ({ category }) => {
           categories: selectedCategory.value,
         },
       });
-
+  
       setTitle('');
       setDescription('');
       setSelectedCategory(null);
-      window.location.reload();
+  
+      // Display success alert
+      swal.fire({
+        title: 'Comment added',
+        icon: 'success',
+        confirmButtonText: 'OK',
+      }).then(() => {
+        window.location.reload();
+      });
+  
+      // Refresh the page after a short delay
+      setTimeout(() => window.location.reload(), 2000);
     } catch (error) {
       console.error('Error creating hobby:', error);
     }
@@ -165,4 +177,4 @@ const HobbyForm = ({ category }) => {
   );
 };
 
-export default HobbyForm;
+export default withSwal(HobbyForm);
