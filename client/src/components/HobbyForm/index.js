@@ -85,7 +85,7 @@ const HobbyForm = ({ category, swal }) => {
   
       // Display success alert
       swal.fire({
-        title: 'Comment added',
+        title: 'Hobby added',
         icon: 'success',
         confirmButtonText: 'OK',
       }).then(() => {
