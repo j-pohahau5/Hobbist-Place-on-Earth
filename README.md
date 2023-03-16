@@ -42,7 +42,9 @@ Create a Interactive MERN Stack Single-Page Application with the following featu
 AS A USER  if I am not logged in 
 I WANT to be able to look at a list of hobbies -OR-view a list of a hobby categories SO I MAY read about them.
 
- ![image info](image.png)
+ ![gif of functionality](./gifs/Demo-HPOE.gif)
+
+ ![screenshot](./screenshot/user1.png)
 
 №2
 
@@ -50,14 +52,26 @@ AS A USER I have an option to login or signUp BECAUSE
 I WANT to  build 
 a profile so that through my account I may add categories and hobbies that become associateD with my profile.
 
+![gif of functionality](./gifs/2.gif)
+
+![screenshot](./screenshot/user2.png)
+
 №3
 
 AS A USER when I’m logged in 
 I WANT to ADD commentS TO other hobbies so that I may share my experienceS with others.
 
-№3
+![gif of functionality](./gifs/3.gif)
+
+![screenshot](./screenshot/user3.png)
+
+№4
 AS A USER when I’m logged in 
 I WANT to JOIN AN EXISTING HOBBY
+
+![gif of functionality](./gifs/4.gif)
+
+![screenshot](./screenshot/user4.png)
 
 # Built With ⚙️
 
@@ -85,15 +99,18 @@ I WANT to JOIN AN EXISTING HOBBY
 
 
 # Installation 🤖
+
 To install the project follow these steps:
+
+💾 Clone down project repo
 
 In the project directory, you can run:
 
-npm install
+🏃-npm install
 
-than
 
-npm run build
+
+🏃-npm run build
 
 Builds the app for production to the build folder.
 It correctly bundles React in production mode and optimizes the build for the best performance.
@@ -101,12 +118,11 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.
 Your app is ready to be deployed!
 
-npm run develop
+🏃-npm run develop
 
 # Usage & Installation 🤖
 
 The URL of the functional, deployed application(heroku)
-
 
 
 The URL of the GitHub repository. Give the repository a unique name and include a README describing the project
