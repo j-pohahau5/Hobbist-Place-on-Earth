@@ -1,12 +1,13 @@
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom'
 import { useMutation } from '@apollo/client';
 import { ADD_CATEGORY } from '../../utils/mutations';
 import { QUERY_CATEGORIES } from '../../utils/queries';
+import { withSwal } from 'react-sweetalert2';
+import Swal from 'sweetalert2';
 import Auth from '../../utils/auth';
 
-const CategoryForm = () => {
+const CategoryForm = ({ swal }) => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [characterCount, setCharacterCount] = useState(0);
@@ -51,7 +52,13 @@ const CategoryForm = () => {
       setTitle('');
       setDescription('');
       setCharacterCount(0);
-      window.location.reload();
+
+      swal.fire({
+        icon: 'success',
+        title: 'Category added!',
+        showConfirmButton: false,
+        timer: 1500
+      });
     } catch (e) {
       console.error(e);
     }
@@ -106,4 +113,4 @@ const CategoryForm = () => {
   );
 }
 
-export default CategoryForm
+export default withSwal(CategoryForm, { Swal });
