@@ -1,11 +1,10 @@
 # Hobbist-Place-on-Earth
 
+
 ## Description 📖
 
-<<<<<<< Updated upstream
-=======
 MERN-stack single-page application, with a scalable MongoDB back end, a GraphQL API, and an Express.js and Node.js server with a React front end, implementing user authentication with JWT to build a user-focused platform.
->>>>>>> Stashed changes
+
 
 ## Getting Started 💃
 
@@ -38,39 +37,164 @@ Create a Interactive MERN Stack Single-Page Application with the following featu
 
 # User story ✏️
 
- ![image info](./assets/images/user1.png)
+№1
 
+AS A USER  if I am not logged in 
+I WANT to be able to look at a list of hobbies -OR-view a list of a hobby categories SO I MAY read about them.
+
+ ![gif of functionality](./gifs/Demo-HPOE.gif)
+
+ ![screenshot](./screenshot/user1.png)
+
+№2
+
+AS A USER I have an option to login or signUp BECAUSE  
+I WANT to  build 
+a profile so that through my account I may add categories and hobbies that become associateD with my profile.
+
+![gif of functionality](./gifs/2.gif)
+
+![screenshot](./screenshot/user2.png)
+
+№3
+
+AS A USER when I’m logged in 
+I WANT to ADD commentS TO other hobbies so that I may share my experienceS with others.
+
+![gif of functionality](./gifs/3.gif)
+
+![screenshot](./screenshot/user3.png)
+
+№4
+AS A USER when I’m logged in 
+I WANT to JOIN AN EXISTING HOBBY
+
+![gif of functionality](./gifs/4.gif)
+
+![screenshot](./screenshot/user4.png)
 
 # Built With ⚙️
 
 
-<<<<<<< Updated upstream
+ [Mongodb](https://www.mongodb.com/)
+
+[Express](https://expressjs.com/)
+
+[React](https://react.dev/)
+
+[Nodejs](https://nodejs.org/en)
+
+[Graphql](https://graphql.org/)
+
+[Heroku](https://id.heroku.com/login)
+
+[Tailwind](https://tailwindcss.com/)
+
+[Mongoose](https://www.npmjs.com/package/mongoose)
+
+[Sweetalerts](https://sweetalert2.github.io/)
+
+[Coolors](https://coolors.co/)
+
+# Code snippets
+
+➡️ Models:
+
+user as example:
+
+Model associations / relationships
+
+user has
+
+many hobbies
+many likes
+many comments
+
+The user schema defines a user object with the following fields:
+
+username: A required string that is unique and trimmed.
+
+email: A required string that is unique and matches an email address pattern.
+
+password: A required string with a minimum length of 5 characters.
+
+hobbies: An array of object IDs referencing Hobby objects.
+
+comments: An array of object IDs referencing Comment objects.
+
+categories: An array of object IDs referencing Category objects.
+
+![model](./screenshot/model.png)
+
+
+➡️ Type-defs:
+
+The typeDef.js file in our schema defines the GraphQL schema for an application that involves users, categories, hobbies, and comments.
+
+It uses the gql function from apollo-server-express to define the schema using GraphQL's type definition language.
+
+The schema includes four main types: User, Category, Comment, and Hobby. Each of these types has a set of fields that define the data that can be queried or mutated.
+
+The Query type defines the queries that can be executed to retrieve data from the application. The available queries include users, user, categories, comments, category, hobbies, hobby, and me.
+
+The Mutation type defines the mutations that can be executed to modify data in the application. There are 16 available mutations, SUCH AS 
+
+![defs](./screenshot/defs.png)
+
+➡️ Tailwindscss & Sweetalert2 :
+
+This code snippet displayed is using the withSwal higher-order component (HOC) from the react-sweetalert2 library.
+
+Higher-order components are functions that take a component and return a new component with additional functionality. withSwal is a HOC that adds SweetAlert2 functionality to a component. 
+
+WE USED REACT-SWEETALERT2 "V.0.5.2" IN ORDER TO GET alerts RENDERed ON the client side of OUR REACT APP 17.0.1 . 
+
+THE REACT APP GETS IMPORTED AT THE TOP OF THE JS PAGE THAT IT GETS USED ON. THE AWAIT SWAL THEN TELLS THE CODE ONCE THIS GETS REMOVED, WAIT A MOMENT (TIMER) AND THEN SAY SUCCESSFULLY DELETED. 
+ 
+OUR PAGE INCLUDES: 
+"ADD COMMENT"
+"ADD CATEGORIES"
+"DELETE COMMENTS"
+"DELETE CATEGORIES"
+
+![FRAMEWORKS](./screenshot/framework.png)
+![FRAMEWORKS](./screenshot/framework2.png)
+
 # Installation 🤖
+
 To install the project follow these steps:
 
-# User stories 🔍
+💾 Clone down project repo
 
-## Contribution 💾 
-=======
+In the project directory, you can run:
+
+🏃-npm install
+
+
+
+🏃-npm run build
+
+Builds the app for production to the build folder.
+It correctly bundles React in production mode and optimizes the build for the best performance.
+
+The build is minified and the filenames include the hashes.
+Your app is ready to be deployed!
+
+🏃-npm run develop
 
 # Usage & Installation 🤖
 
-The project was uploaded to GitHub at the following repository:
+The URL of the functional, deployed application(heroku)
+
+
+The URL of the GitHub repository. Give the repository a unique name and include a README describing the project
 
 https://github.com/j-pohahau5/Hobbist-Place-on-Earth
->>>>>>> Stashed changes
 
 ## Authors 💣
 
 ** OUR TEAM **  
-💻
-💻
-💻
-💻
-💻
 
-<<<<<<< Updated upstream
-=======
 💻- [Alex Horning](https://github.com/makeitouthill)
 
 💻- [Emil Ronquillo](https://github.com/Emil1577)
@@ -80,7 +204,6 @@ https://github.com/j-pohahau5/Hobbist-Place-on-Earth
 💻- [Jonathan Pohahau](https://github.com/j-pohahau5)
 
 💻- [Roksolana Odynak](https://github.com/poucoLouco)
->>>>>>> Stashed changes
 
 
 # License 📑
