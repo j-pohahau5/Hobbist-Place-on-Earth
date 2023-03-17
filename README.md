@@ -94,30 +94,31 @@ I WANT to JOIN AN EXISTING HOBBY
 # Built With 
 ⚙️
 
+|Technology | Resource |
+|-----|:-----------|
+| Mongodb | [Mongodb](https://www.mongodb.com/) |
 
- [Mongodb](https://www.mongodb.com/)
+| Express | [Express](https://expressjs.com/) |
 
-[Express](https://expressjs.com/)
+| React | [React](https://react.dev/) |
 
-[React](https://react.dev/)
+| Nodejs | [Nodejs](https://nodejs.org/en) |
 
-[Nodejs](https://nodejs.org/en)
+| Graphql | [Graphql](https://graphql.org/) |
 
-[Graphql](https://graphql.org/)
+| Heroku | [Heroku](https://id.heroku.com/login) |
 
-[Heroku](https://id.heroku.com/login)
+| TailwindCSS | [Tailwind](https://tailwindcss.com/) |
 
-[Tailwind](https://tailwindcss.com/)
+| Mongoose |[Mongoose](https://www.npmjs.com/package/mongoose) |
 
-[Mongoose](https://www.npmjs.com/package/mongoose)
+| SweetAlerts2 | [Sweetalerts](https://sweetalert2.github.io/) |
 
-[Sweetalerts](https://sweetalert2.github.io/)
-
-[Coolors](https://coolors.co/)
+| Coolors | [Coolors](https://coolors.co/) |
 
 # Code snippets
-🔦
-➡️ Models:
+
+## Models:
 
 user as example:
 
@@ -146,7 +147,7 @@ categories: An array of object IDs referencing Category objects.
 ![model](./screenshot/model.png)
 
 
-➡️ Type-defs:
+## Type-defs:
 
 The typeDef.js file in our schema defines the GraphQL schema for an application that involves users, categories, hobbies, and comments.
 
@@ -160,21 +161,15 @@ The Mutation type defines the mutations that can be executed to modify data in t
 
 ![defs](./screenshot/defs.png)
 
-➡️ Tailwindscss & Sweetalert2 :
+## Sweetalert2:
 
 This code snippet displayed is using the withSwal higher-order component (HOC) from the react-sweetalert2 library.
 
 Higher-order components are functions that take a component and return a new component with additional functionality. withSwal is a HOC that adds SweetAlert2 functionality to a component. 
 
-WE USED REACT-SWEETALERT2 "V.0.5.2" IN ORDER TO GET alerts RENDERed ON the client side of OUR REACT APP 17.0.1 . 
+We used REACT-Sweetalert2 "v.0.5.2" in order to get alerts rendered on teh client side of our REACT app "v.17.0.1"
 
-THE REACT APP GETS IMPORTED AT THE TOP OF THE JS PAGE THAT IT GETS USED ON. THE AWAIT SWAL THEN TELLS THE CODE ONCE THIS GETS REMOVED, WAIT A MOMENT (TIMER) AND THEN SAY SUCCESSFULLY DELETED. 
- 
-OUR PAGE INCLUDES: 
-"ADD COMMENT"
-"ADD CATEGORIES"
-"DELETE COMMENTS"
-"DELETE CATEGORIES"
+The REACT app gets imported at the top of the javascript page that it gets used on as a hoc. The await swal then starts a timer once something is removed and then renders an alert saying 'successfully delete'. 
 
 ![FRAMEWORKS](./screenshot/framework.png)
 ![FRAMEWORKS](./screenshot/framework2.png)
@@ -189,8 +184,6 @@ To install the project follow these steps:
 In the project directory, you can run:
 
 🏃-npm install
-
-
 
 🏃-npm run build
 
