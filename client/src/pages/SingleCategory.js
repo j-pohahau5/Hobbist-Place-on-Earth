@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { useQuery, useMutation } from '@apollo/client';
-import HobbyList from '../components/HobbyList';
+// import HobbyList from '../components/HobbyList';
 import HobbyForm from '../components/HobbyForm';
 import { QUERY_SINGLE_CATEGORY, QUERY_ALL_HOBBIES } from '../utils/queries';
 import { DELETE_HOBBY } from '../utils/mutations';
@@ -22,9 +22,15 @@ const SingleCategory = () => {
   const [deleteHobby] = useMutation(DELETE_HOBBY);
 
   if (loadingCategory || loadingHobbies) {
+    console.log("hobbiesData:", hobbiesData);
     return <div>loading...</div>;
   }
 
+  if (!hobbiesData) {
+    console.error("hobbiesData is undefined");
+    return <div>Error fetching hobbies data</div>;
+  }
+  console.log('Data:', hobbiesData);
   const category = categoryData.category;
   const hobbies = hobbiesData.hobbies;
 

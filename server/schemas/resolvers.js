@@ -26,7 +26,8 @@ const resolvers = {
         // .populate("comments")
     },
     hobbies: async (parent, { categories }) => {
-      const params = categories ? { categories } : {};
+      console.log('Categories:', categories);
+      const params = categories ? { categories: {$in: [categories] } } : {};
       return Hobby.find(params).sort({ createdAt: -1 }).populate("categories").populate("comments").populate("users");
       // 
       // .populate("commentID")

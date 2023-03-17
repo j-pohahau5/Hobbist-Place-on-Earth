@@ -1,66 +1,30 @@
 [ 
   {   
-    "title": "Drawing",   
-    "description": "Sketching and drawing",    
-    "categoryId": "1",    
-    "userId": "1",    
-    "comments": [      
-      {        
-        "content": "I love drawing too!",       
-        "userId": "2"      
-      },      
-      {        
-        "content": "Your drawings are amazing!",        
-        "userId": "3"      
-      }   
-    ]
+    "title": "Drawing",
+    "description": "Sketching and drawing",   
+    "categories": ["6412b12c5620e682be7df3cf"], 
+    "userId": "6412cbe5c4bdcb7da248e845",
+    "_id": "6412cbfac4bdcb7da248e84a"
   },
   {
     "title": "Basketball",
     "description": "Playing basketball",
-    "categoryId": "2",
-    "userId": "2",
-    "comments": [
-      {
-        "content": "Great shot!",
-        "userId": "1"
-      },
-      {
-        "content": "I used to play basketball too!",
-        "userId": "3"
-      }
-    ]
+    "categories": ["6412b12c5620e682be7df3d0"],
+    "userId": "6412cbe5c4bdcb7da248e846",
+    "_id": "6412cbfac4bdcb7da248e84b"
   },
   {
     "title": "Guitar",
     "description": "Playing guitar",
-    "categoryId": "3",
-    "userId": "3",
-    "comments": [
-      {
-        "content": "You're really talented!",
-        "userId": "1"
-      },
-      {
-        "content": "I wish I could play guitar like you!",
-        "userId": "2"
-      }
-    ]
+    "categories": ["6412b12c5620e682be7df3d1"],
+    "userId": "6412cbe5c4bdcb7da248e847",
+    "_id": "6412cbfac4bdcb7da248e84c"
   },
   {
     "title": "Coding",
     "description": "Programming and coding",
-    "categoryId": "4",
-    "userId": "4",
-    "comments": [
-      {
-        "content": "Coding is so fun!",
-        "userId": "2"
-      },
-      {
-        "content": "I'm learning to code too!",
-        "userId": "3"
-      }
-    ]
+    "categories": ["6412b12c5620e682be7df3d2"],
+    "userId": "6412cbe5c4bdcb7da248e848",
+    "_id": "6412cbfac4bdcb7da248e84d"
   }
 ]
