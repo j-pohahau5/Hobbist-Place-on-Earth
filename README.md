@@ -1,12 +1,29 @@
 # Hobbist-Place-on-Earth
 
 
-## Description 📖
+# Description  
+📖
 
 MERN-stack single-page application, with a scalable MongoDB back end, a GraphQL API, and an Express.js and Node.js server with a React front end, implementing user authentication with JWT to build a user-focused platform.
 
+# Table of Contents
 
-## Getting Started 💃
+- [Hobbist-Place-on-Earth](#hobbist-place-on-earth)
+- [Description](#description)
+- [Table of Contents](#table-of-contents)
+- [Getting Started](#getting-started)
+- [User story](#user-story)
+- [Built With](#built-with)
+- [Code snippets](#code-snippets)
+- [Installation](#installation)
+- [Usage and Installation](#usage-and-installation)
+- [Authors](#authors)
+- [License](#license)
+
+
+
+# Getting Started 
+💃
 
 Create a Interactive MERN Stack Single-Page Application with the following features:
 
@@ -35,7 +52,8 @@ Create a Interactive MERN Stack Single-Page Application with the following featu
 
 ✅Have a high-quality README (with unique name, description, technologies used, screenshot, and link to deployed application).
 
-# User story ✏️
+# User story    
+✏️
 
 №1
 
@@ -73,7 +91,8 @@ I WANT to JOIN AN EXISTING HOBBY
 
 ![screenshot](./screenshot/user4.png)
 
-# Built With ⚙️
+# Built With 
+⚙️
 
 
  [Mongodb](https://www.mongodb.com/)
@@ -97,7 +116,7 @@ I WANT to JOIN AN EXISTING HOBBY
 [Coolors](https://coolors.co/)
 
 # Code snippets
-
+🔦
 ➡️ Models:
 
 user as example:
@@ -160,11 +179,12 @@ OUR PAGE INCLUDES:
 ![FRAMEWORKS](./screenshot/framework.png)
 ![FRAMEWORKS](./screenshot/framework2.png)
 
-# Installation 🤖
+# Installation
+💾
 
 To install the project follow these steps:
 
-💾 Clone down project repo
+ Clone down project repo
 
 In the project directory, you can run:
 
@@ -182,16 +202,19 @@ Your app is ready to be deployed!
 
 🏃-npm run develop
 
-# Usage & Installation 🤖
+# Usage and Installation 
+🤖
 
 The URL of the functional, deployed application(heroku)
 
+https://hobbiest-place-ons-earth.herokuapp.com/
 
 The URL of the GitHub repository. Give the repository a unique name and include a README describing the project
 
 https://github.com/j-pohahau5/Hobbist-Place-on-Earth
 
-## Authors 💣
+# Authors 
+💣
 
 ** OUR TEAM **  
 
@@ -206,6 +229,7 @@ https://github.com/j-pohahau5/Hobbist-Place-on-Earth
 💻- [Roksolana Odynak](https://github.com/poucoLouco)
 
 
-# License 📑
+# License 
+📑
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
