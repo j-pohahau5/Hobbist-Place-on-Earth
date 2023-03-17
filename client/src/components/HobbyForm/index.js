@@ -35,7 +35,7 @@ const HobbyForm = ({ category, swal }) => {
   useEffect(() => {
     if (category) {
       const option = categoriesOptions.find((option) => option.label === category);
-      if (option !== selectedCategory) {
+      if (!selectedCategory || option !== selectedCategory) {
         setSelectedCategory(option);
       }
     }

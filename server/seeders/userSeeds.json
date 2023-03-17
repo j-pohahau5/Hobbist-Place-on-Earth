@@ -3,53 +3,25 @@
       "username": "john_doe",
       "email": "john_doe@gmail.com",
       "password": "password123",
-      "hobbies": [
-        {
-          "hobbyId": "1"
-        },
-        {
-          "hobbyId": "2"
-        }
-      ]
+      "_id": "6412cbe5c4bdcb7da248e845"
     },
     {
       "username": "jane_smith",
       "email": "jane_smith@gmail.com",
       "password": "password456",
-      "hobbies": [
-        {
-          "hobbyId": "3"
-        },
-        {
-          "hobbyId": "4"
-        }
-      ]
+      "_id": "6412cbe5c4bdcb7da248e846"
     },
     {
       "username": "bob_johnson",
       "email": "bob_johnson@gmail.com",
       "password": "password789",
-      "hobbies": [
-        {
-          "hobbyId": "2"
-        },
-        {
-          "hobbyId": "3"
-        }
-      ]
+      "_id": "6412cbe5c4bdcb7da248e847"
     },
     {
       "username": "mary_wilson",
       "email": "mary_wilson@gmail.com",
       "password": "passwordabc",
-      "hobbies": [
-        {
-          "hobbyId": "1"
-        },
-        {
-          "hobbyId": "4"
-        }
-      ]
+      "_id": "6412cbe5c4bdcb7da248e848"
     }
   ]
   
