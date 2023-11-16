@@ -11,6 +11,8 @@ mongoose.connect(
     useUnifiedTopology: true,
   }
 );
+
+mongoose.set('strictQuery', true);
 // mongodb://127.0.0.1:27017/hobbies
 // IWZyk7HMxNrj4j9w
 
