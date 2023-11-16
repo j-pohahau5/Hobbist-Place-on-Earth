@@ -1,36 +1,45 @@
 {
-    "name": "hobbist-place-on-earth",
-    "version": "0.1.0",
-    "description": "Niche hobby ranking form that user can upvotes hobbies and populates a list of hobbies in descending order.",
-    "main": "server/server.js",
-    "scripts": {
-        "start": "node server/server.js",
-        "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
-        "install": "cd server && npm i && cd ../client && npm i",
-        "seed": "cd server && npm run seed",
-        "build": "cd client && npm run build"
-    },
-    "keywords": [
-        "hobby",
-        "ranked-hobbies",
-        "hobbies"
-    ],
-    "authors": [
-        "Emil Ronquillo",
-        "Roksolana Odynak",
-        "Henner Espinoza",
-        "Jonathan Pohahau",
-        "Alex Horning"
-    ],
-    "license": "MIT",
-    "devDependencies": {
-        "concurrently": "^7.6.0"
-    },
-    "dependencies": {
-        "dotenv": "^16.0.3"
-    },
-    "engines" : { 
-    "npm" : "8.1.0",
-    "node" : "16.13.0"
-    }
+  "name": "hobbist-place-on-earth",
+  "version": "0.1.0",
+  "description": "Niche hobby ranking form that user can upvotes hobbies and populates a list of hobbies in descending order.",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
+    "install": "cd server && npm i && cd ../client && npm i",
+    "seed": "cd server && npm run seed",
+    "build": "cd client && npm run build"
+  },
+  "keywords": [
+    "hobby",
+    "ranked-hobbies",
+    "hobbies"
+  ],
+  "authors": [
+    "Emil Ronquillo",
+    "Roksolana Odynak",
+    "Henner Espinoza",
+    "Jonathan Pohahau",
+    "Alex Horning"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^7.6.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.3"
+  },
+  "engines": {
+    "npm": "8.1.0",
+    "node": "16.13.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/j-pohahau5/Hobbist-Place-on-Earth.git"
+  },
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/j-pohahau5/Hobbist-Place-on-Earth/issues"
+  },
+  "homepage": "https://github.com/j-pohahau5/Hobbist-Place-on-Earth#readme"
 }
